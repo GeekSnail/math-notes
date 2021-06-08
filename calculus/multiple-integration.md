@@ -16,7 +16,7 @@ Y 型区域 D：穿过 D 内部平行于 x 轴的直线与 D 的边界相交不�
 
 ![](../assets/multi-ingration1.png)
 
-<img src="../assets/multi-ingration2.png" style="zoom: 67%;" />
+<img src="assets/multi-ingration2.png" style="zoom: 67%;" />
 
 #### 轮换对称性
 
@@ -38,7 +38,6 @@ $x\xleftrightarrow{\text{对调}}y, D$ 不变或 $D$ 关于 y=x 对称 $\Rightar
 
 弧长微元 $rd\theta$，扇环面积微元 $d\sigma=dxdy=dr·rd\theta$
 
-
 ![](../assets/multi-ingration7.png) ![](../assets/multi-ingration6.png)
 
 ##### 选择原则
@@ -52,11 +51,7 @@ $x\xleftrightarrow{\text{对调}}y, D$ 不变或 $D$ 关于 y=x 对称 $\Rightar
 
 #### 二重积分处理一元积分
 
-
-
-----
-
-
+---
 
 ## 三重积分
 
@@ -82,18 +77,18 @@ $\Omega=\{(x,y,z)|x^2+y^2+z^2\le R^2\} \Rightarrow\iiint\limits_{\Omega}f(x)dv=\
 
 1. 直角坐标系
 
-- 先 1 后 2，先 z 后 xy，投影穿线<img src="../assets/multi-ingration9.png" style="float:right;" />
-  适用：$\Omega$有下曲面$z=z_1(x,y)$，上曲面$z=z_2(x,y)$ 
-  
+- 先 1 后 2，先 z 后 xy，投影穿线<img src="assets/multi-ingration9.png" style="float:right;" />
+  适用：$\Omega$有下曲面$z=z_1(x,y)$，上曲面$z=z_2(x,y)$
+
   $\iiint\limits_{\Omega}f(x,y,z)dv=\iint\limits_{D_{xy}}d\sigma\int_{z_1(x,y)}^{z_2(x,y)}f(x,y,z)dz$
 
-- 先 2 后 1，先 xy 后 z，定限截面<img src="../assets/multi-ingration10.png" style="float:right;" />
+- 先 2 后 1，先 xy 后 z，定限截面<img src="assets/multi-ingration10.png" style="float:right;" />
   适用：$\Omega$是旋转体，旋转曲面方程$z=z(x,y)$
-  
+
   $\iiint\limits_{\Omega}f(x,y,z)dv=\int_{a}^{b}dz\iint\limits_{D_z}f(x,y,z)d\sigma$
 
 2. 柱面坐标系=定积分+极坐标系二重积分
-   <img src="../assets/multi-ingration11.png" style="float:right;" />
+   <img src="assets/multi-ingration11.png" style="float:right;" />
 
    在直角坐标系二重积分中，若$\iint\limits_{D_{xy}}d\sigma$ 适用极坐标系$(x^2+y^2)$，则令
    $\begin{cases}
@@ -105,7 +100,7 @@ $\Omega=\{(x,y,z)|x^2+y^2+z^2\le R^2\} \Rightarrow\iiint\limits_{\Omega}f(x)dv=\
 
 3. 球面坐标系
    适用：被积函数含 $f(x^2+y^2+z^2), f(x^2+y^2)$；积分区域球或锥的部分
-   <img src="../assets/multi-ingration12.png" style="float:right;" />
+   <img src="assets/multi-ingration12.png" style="float:right;" />
 
    $\begin{cases}
    x=rsin\phi cos\theta\\
@@ -123,7 +118,7 @@ $\Omega=\{(x,y,z)|x^2+y^2+z^2\le R^2\} \Rightarrow\iiint\limits_{\Omega}f(x)dv=\
 
 ![](../assets/multi-ingration13.png)
 
-----
+---
 
 ## 一型曲线、曲面积分
 
@@ -148,7 +143,7 @@ $\Omega=\{(x,y,z)|x^2+y^2+z^2\le R^2\} \Rightarrow\iiint\limits_{\Omega}f(x)dv=\
 
 ### 一型对面积曲面积分
 
-曲面在 yOz 平面投影$D_{yz}$，点的外法向与 x 正轴夹角$cos\alpha$<img src="../assets/image-20210606163401433.png" alt="image-20210606163401433" style="float:right;" />
+曲面在 yOz 平面投影$D_{yz}$，点的外法向与 x 正轴夹角$cos\alpha$<img src="assets/image-20210606163401433.png" alt="image-20210606163401433" style="float:right;" />
 
 曲面在 xOz 平面投影$D_{xz}$，点的外法向与 y 正轴夹角$cos\beta$
 
@@ -194,19 +189,19 @@ $dS=\frac{1}{|cos\alpha|}dydz=\frac{1}{|cos\beta|}dxdz=\frac{1}{|cos\gamma|}dxdy
 
 #### 重心/质心，形心 $\rho=C$
 
-##### 平面薄片D
+##### 平面薄片 D
 
 面密度$\rho(x,y)$，重心$(\bar x,\bar y)=(\frac{\iint_Dx\rho(x,y)d\sigma}{\iint_D\rho(x,y)d\sigma},\frac{\iint_Dy\rho(x,y)d\sigma}{\iint_D\rho(x,y)d\sigma})$
 
-形心$(\bar x,\bar y)=\frac{1}{S_D}(\iint_Dxd\sigma,\iint_Dyd\sigma)$ 
+形心$(\bar x,\bar y)=\frac{1}{S_D}(\iint_Dxd\sigma,\iint_Dyd\sigma)$
 
 ##### 空间物体$\Omega$
 
 体密度$\rho(x,y,z)$，重心$(\bar x,\bar y,\bar z)=(\frac{\iiint_\Omega x\rho(x,y,z)dv}{\iiint_\Omega \rho(x,y,z)dv},\frac{\iiint_\Omega y\rho(x,y,z)dv}{\iiint_\Omega \rho(x,y,z)dv},\frac{\iiint_\Omega z\rho(x,y,z)dv}{\iiint_\Omega \rho(x,y,z)dv})$
 
-形心$(\bar x,\bar y,\bar z)=\frac{1}{V_\Omega}(\iiint_\Omega xdv,\iiint_\Omega ydv,\iiint_\Omega zdv)$ 
+形心$(\bar x,\bar y,\bar z)=\frac{1}{V_\Omega}(\iiint_\Omega xdv,\iiint_\Omega ydv,\iiint_\Omega zdv)$
 
-##### 曲线L
+##### 曲线 L
 
 线密度$\rho(x,y,z)$，重心$(\bar x,\bar y,\bar z)=(\frac{\int_L x\rho(x,y,z)dr}{\int_L \rho(x,y,z)dr},\frac{\int_L y\rho(x,y,z)dr}{\int_L \rho(x,y,z)dr},\frac{\int_L z\rho(x,y,z)dr}{\int_L \rho(x,y,z)dr})$
 
@@ -217,7 +212,7 @@ $dS=\frac{1}{|cos\alpha|}dydz=\frac{1}{|cos\beta|}dxdz=\frac{1}{|cos\gamma|}dxdy
 面密度$\rho(x,y,z)$，重心$(\bar x,\bar y,\bar z)=(\frac{\iint_\Sigma x\rho(x,y,z)dS}{\iint_\Sigma \rho(x,y,z)dS},\frac{\iint_\Sigma y\rho(x,y,z)dS}{\iint_\Sigma \rho(x,y,z)dS},\frac{\iint_\Sigma z\rho(x,y,z)dS}{\iint_\Sigma \rho(x,y,z)dS})$
 
 形心$(\bar x,\bar y,\bar z)=\frac{1}{S_\Sigma}(\iint_\Sigma xdS,\iint_\Sigma ydS,\iint_\Sigma zdS)$
-<img src="../assets/multi-ingration15.png" style="zoom:80%;" />
+<img src="assets/multi-ingration15.png" style="zoom:80%;" />
 
 #### 转动惯量
 
@@ -227,9 +222,9 @@ $dS=\frac{1}{|cos\alpha|}dydz=\frac{1}{|cos\beta|}dxdz=\frac{1}{|cos\gamma|}dxdy
 
 $I=\Sigma_im_ir_i^2, m_i$ 质点微元的质量，$r_i$ 质元与转轴距离
 
-##### 平面薄片D
+##### 平面薄片 D
 
-面密度$\rho(x,y)$，薄片对x轴，y轴和原点O的转动惯量：
+面密度$\rho(x,y)$，薄片对 x 轴，y 轴和原点 O 的转动惯量：
 
 $I_x=\iint_Dy^2\rho(x,y)d\sigma,I_y=\iint_Dx^2\rho(x,y)d\sigma,I_O=\iint_D(x^2+y^2)\rho(x,y)d\sigma$
 
@@ -239,7 +234,7 @@ $I_x=\iint_Dy^2\rho(x,y)d\sigma,I_y=\iint_Dx^2\rho(x,y)d\sigma,I_O=\iint_D(x^2+y
 
 $I_z=\iiint_\Omega (x^2+y^2)\rho(x,y,z)dv,I_O=\iiint_\Omega (x^2+y^2+z^2)\rho(x,y,z)dv$
 
-##### 曲线L
+##### 曲线 L
 
 线密度$\rho(x,y,z)$，$I_x=\int_L (y^2+z^2)\rho(x,y,z)dr,I_y=\int_L (z^2+x^2)\rho(x,y,z)dr$
 
@@ -252,8 +247,6 @@ $I_z=\int_L (x^2+y^2)\rho(x,y,z)dr,I_O=\int_L (x^2+y^2+z^2)\rho(x,y,z)dr$
 $I_z=\iint_\Sigma (x^2+y^2)\rho(x,y,z)dS, I_O=\iint_\Sigma (x^2+y^2+z^2)\rho(x,y,z)dS$
 
 ### 引力
-
-
 
 ## 二型曲线、曲面积分
 
@@ -278,7 +271,7 @@ $W=\int_\Gamma\pmb{F}·\frac{d\pmb{r}}{dt}dt=\int_a^b(Px'(t)+Qy'(t)+Rz'(t))dt$ �
 - 曲线向量 关于 x 轴对称，位移微分向量 dx 方向(符号)改变，场分量 P 关于 x 为偶，则$\int_LPdx$ (做功)=0
 - 曲线向量 关于 x 轴对称，位移微分向量 dy 方向(符号)不变，场分量 Q 关于 x 为奇，则$\int_LQdy$ (做功)=0
 
-<img src="../assets/multi-ingration16.png" style="zoom:67%;" />
+<img src="assets/multi-ingration16.png" style="zoom:67%;" />
 
 #### 平面二型曲线计算
 
@@ -288,11 +281,11 @@ $W=\int_\Gamma\pmb{F}·\frac{d\pmb{r}}{dt}dt=\int_a^b(Px'(t)+Qy'(t)+Rz'(t))dt$ �
 
 $\int_a^bF'(x)dx=F(b)-F(a)$
 
-平面闭区域D上的二重积分可以通过沿闭区域D的边界曲线L上的曲线积分来表示
+平面闭区域 D 上的二重积分可以通过沿闭区域 D 的边界曲线 L 上的曲线积分来表示
 
-1. D 封闭区域(L 封闭曲线)，2. L 正方向：左手在 D 内，3. P、Q 有一阶连续偏导数<img src="../assets/image-20210608111615239.png" alt="image-20210608111615239" style="zoom:80%;float:right" /><img src="../assets/image-20210608111411805.png" alt="image-20210608111411805" style="zoom:80%;float:right" />
+1. D 封闭区域(L 封闭曲线)，2. L 正方向：左手在 D 内，3. P、Q 有一阶连续偏导数<img src="assets/image-20210608111615239.png" alt="image-20210608111615239" style="zoom:80%;float:right" /><img src="assets/image-20210608111411805.png" alt="image-20210608111411805" style="zoom:80%;float:right" />
 
-   >  $\iint_D \frac{\partial P}{\partial y}dxdy=\int_a^b(P(x,y_2(x))-P(x,y_1(x)))dx=-\oint_L Pdx$
+   > $\iint_D \frac{\partial P}{\partial y}dxdy=\int_a^b(P(x,y_2(x))-P(x,y_1(x)))dx=-\oint_L Pdx$
    >
    > $\iint_D \frac{\partial Q}{\partial x}dxdy=\int_c^d(Q(x_2(y),y)-Q(x_1(y),y))dy=\oint_L Qdy$
 
@@ -308,19 +301,19 @@ $\int_a^bF'(x)dx=F(b)-F(a)$
 
 - 题设：含非一阶连续偏导点——挖点法(外线内线各一次格林公式)
 
-  ![](../assets/multi-ingration19.png)<img src="../assets/multi-ingration20.png" style="zoom:50%;" />
-  
-  对复连通区域D1使用格林公式，力场沿[外线-内线]与[内线-外线]的路径做功抵消：
-  
+  ![](../assets/multi-ingration19.png)<img src="assets/multi-ingration20.png" style="zoom:50%;" />
+
+  对复连通区域 D1 使用格林公式，力场沿[外线-内线]与[内线-外线]的路径做功抵消：
+
   $\iint_{D_1}(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y})dxdy=\oint_{L+l}Pdx+Qdy$
-  
+
   $\oint_L=\oint_{L^++C^-}-\oint_{C^-}=\oint_{L^++C^-}+\oint_{C^+}$
 
 ##### 平面上曲线积分与路径无关的条件
 
-**定理**：区域G单连通，P、Q在G内一阶偏导连续； 
+**定理**：区域 G 单连通，P、Q 在 G 内一阶偏导连续；
 
-$\int_LPdx+Qdy$ 在G内与路径无关$\Leftrightarrow\oint_LPdx+Qdy=0$沿G内任意闭曲线积分为0
+$\int_LPdx+Qdy$ 在 G 内与路径无关$\Leftrightarrow\oint_LPdx+Qdy=0$沿 G 内任意闭曲线积分为 0
 
 $\Leftrightarrow\frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x}$
 
@@ -337,7 +330,7 @@ $\exist$ 可微函数 $f(x,y)$, 全微分 $df=Pdx+Qdy=0\Rightarrow f(x,y)=C$ 隐
 
 #### 曲线积分基本定理
 
-空间区域 $\Omega$ 内的向量场 $\pmb{F}=P\pmb{i}+Q\pmb{j}+R\pmb{k}$，分量 P,Q,R 在 $\Omega$ 内连续 
+空间区域 $\Omega$ 内的向量场 $\pmb{F}=P\pmb{i}+Q\pmb{j}+R\pmb{k}$，分量 P,Q,R 在 $\Omega$ 内连续
 
 $\Rightarrow\exist$ 可微势函数 $f, \pmb{F}=\nabla f\Leftrightarrow\forall A,B\in \Omega, \int_A^B\pmb{F}·d\pmb{r}$ 与 $\Omega$ 内连接 A,B 的路径无关
 
@@ -347,7 +340,7 @@ $\int_C\pmb{F}·d\pmb{r}=\int_a^b\pmb{F}·\frac{d\pmb{r}}{dt}dt=\int_a^b\frac{df
 
 ##### 斯托克斯公式 1.18.7, 1.18.17
 
-$\Sigma$ 为空间某区域$\Omega$内的光滑有向曲面片，$\Gamma$ 为$\Sigma$的光滑边界，方向与$\Sigma$的法向量成右手系，P、Q、R 在$\Omega$内具有连续的一阶偏导数，取 $\Gamma$ 所围平面 $z=z(x,y)$ 的单位外法向 $\pmb{n}=(cos\alpha,cos\beta,cos\gamma)=\frac{\pmb{\nabla g}}{|\nabla g|}$，<img src="../assets/image-20210608163309916.png" alt="image-20210608163309916" style="float:right" />
+$\Sigma$ 为空间某区域$\Omega$内的光滑有向曲面片，$\Gamma$ 为$\Sigma$的光滑边界，方向与$\Sigma$的法向量成右手系，P、Q、R 在$\Omega$内具有连续的一阶偏导数，取 $\Gamma$ 所围平面 $z=z(x,y)$ 的单位外法向 $\pmb{n}=(cos\alpha,cos\beta,cos\gamma)=\frac{\pmb{\nabla g}}{|\nabla g|}$，<img src="assets/image-20210608163309916.png" alt="image-20210608163309916" style="float:right" />
 
 > $\iint_\Sigma \frac{\partial P}{\partial z}dzdx-\frac{\partial P}{\partial y}dxdy=\iint_\Sigma (\frac{\partial P}{\partial z}\frac{cos\beta}{cos\gamma}-\frac{\partial P}{\partial y})dxdy=-\iint_\Sigma (\frac{\partial P}{\partial z}z'_y+\frac{\partial P}{\partial y})dxdy$
 >
@@ -357,7 +350,8 @@ $\Sigma$ 为空间某区域$\Omega$内的光滑有向曲面片，$\Gamma$ 为$\S
 >
 > $\iint_\Sigma \frac{\partial R}{\partial y}dydz-\frac{\partial R}{\partial x}dzdx=\oint_\Gamma Rdz$
 
-$$\oint_\Gamma Pdx+Qdy+Rdz=\iint_\Sigma \left|
+$$
+\oint_\Gamma Pdx+Qdy+Rdz=\iint_\Sigma \left|
 \begin{array}{ccc}
 cos\alpha & cos\beta & cos\gamma\\
 \frac{\partial }{\partial x} & \frac{\partial }{\partial y} & \frac{\partial }{\partial z}\\
@@ -369,7 +363,8 @@ dydz & dzdx & dxdy\\
 \frac{\partial }{\partial x} & \frac{\partial }{\partial y} & \frac{\partial }{\partial z}\\
 P & Q & R
 \end{array}
-\right|=\iint_\Sigma \pmb{rot F·n}dS$$
+\right|=\iint_\Sigma \pmb{rot F·n}dS
+$$
 
 $$=\iint_\Sigma ((\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z})cos\alpha+(\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x})cos\beta+(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y})cos\gamma)dS$$
 
@@ -385,14 +380,15 @@ $W=\oint_\Gamma\pmb{F}·\frac{d\pmb{r}}{dt}dt=\oint_a^b(Px'(t)+Qy'(t)+Rz'(t))dt$
 
 #### 环量密度(旋度)
 
-$$\pmb{rot A}=\pmb{\nabla\times F}=\left|
+$$
+\pmb{rot A}=\pmb{\nabla\times F}=\left|
 \begin{array}{ccc}
 \pmb{i} & \pmb{j} & \pmb{k}\\
 \frac{\partial }{\partial x} & \frac{\partial }{\partial y} & \frac{\partial }{\partial z}\\
 P & Q & R
 \end{array}
-\right|=(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z})\pmb{i}+(\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x})\pmb{j}+(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y})\pmb{k}$$
-
+\right|=(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z})\pmb{i}+(\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x})\pmb{j}+(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y})\pmb{k}
+$$
 
 ### 二型对坐标曲面积分
 
@@ -416,72 +412,67 @@ $\iint_\Sigma P(x,y,z)dydz=\iint_{D_{xy}}P(x,y,z)\frac{cos\alpha}{cos\gamma}dxdy
 
 #### 二型曲面对称性
 
-- 曲面关于yOz坐标面对称，外法向$\pmb{n}$关于x轴的方向余弦变号（dydz变号）;
+- 曲面关于 yOz 坐标面对称，外法向$\pmb{n}$关于 x 轴的方向余弦变号（dydz 变号）;
 
-  场分量P关于x为偶，通量$\iint_\Sigma Pdydz=0$，场分量P关于x为奇，通量$\iint_\Sigma Pdydz=2\iint_{\Sigma_1}Pdydz$
+  场分量 P 关于 x 为偶，通量$\iint_\Sigma Pdydz=0$，场分量 P 关于 x 为奇，通量$\iint_\Sigma Pdydz=2\iint_{\Sigma_1}Pdydz$
 
-- 曲面关于xOz坐标面对称，外法向$\pmb{n}$关于y轴的方向余弦变号（dxdz变号）；
+- 曲面关于 xOz 坐标面对称，外法向$\pmb{n}$关于 y 轴的方向余弦变号（dxdz 变号）；
 
-  场分量Q关于y为偶，通量$\iint_\Sigma Qdxdz=0$，场分量Q关于y为奇，通量$\iint_\Sigma Qdxdz=2\iint_{\Sigma_1} Qdxdz$
+  场分量 Q 关于 y 为偶，通量$\iint_\Sigma Qdxdz=0$，场分量 Q 关于 y 为奇，通量$\iint_\Sigma Qdxdz=2\iint_{\Sigma_1} Qdxdz$
 
-- 曲面关于xOy坐标面对称，外法向$\pmb{n}$关于z轴的方向余弦变号（dxdy变号）；
+- 曲面关于 xOy 坐标面对称，外法向$\pmb{n}$关于 z 轴的方向余弦变号（dxdy 变号）；
 
-  场分量R关于z为偶，通量$\iint_\Sigma Rdxdy=0$，场分量R关于z为奇，通量$\iint_\Sigma Rdxdy=2\iint_{\Sigma_1}Rdxdy$
+  场分量 R 关于 z 为偶，通量$\iint_\Sigma Rdxdy=0$，场分量 R 关于 z 为奇，通量$\iint_\Sigma Rdxdy=2\iint_{\Sigma_1}Rdxdy$
 
-<img src="../assets/image-20210607223107606.png" alt="image-20210607223107606" style="zoom:80%;" /> <img src="../assets/image-20210607223304022.png" alt="image-20210607223304022" style="zoom: 67%;" />
+<img src="assets/image-20210607223107606.png" alt="image-20210607223107606" style="zoom:80%;" /> <img src="assets/image-20210607223304022.png" alt="image-20210607223304022" style="zoom: 67%;" />
 
- <img src="../assets/image-20210607222859017.png" alt="image-20210607222859017" style="zoom:67%;" />
+ <img src="assets/image-20210607222859017.png" alt="image-20210607222859017" style="zoom:67%;" />
 
 #### 二型曲面计算
 
 ##### 基本-化二重积分
 
-<img src="../assets/image-20210607230707515.png" alt="image-20210607230707515" style="zoom: 67%;" />
+<img src="assets/image-20210607230707515.png" alt="image-20210607230707515" style="zoom: 67%;" />
 
 ##### 高斯公式
 
-1. $\Sigma$封闭曲面(封闭区域$\Omega$)，2. $\Sigma$取外侧，3. P,Q,R有一阶连续偏导数<img src="../assets/image-20210608110646092.png" alt="image-20210608110646092" style="zoom:90%;float:right" />
+1. $\Sigma$封闭曲面(封闭区域$\Omega$)，2. $\Sigma$取外侧，3. P,Q,R 有一阶连续偏导数<img src="assets/image-20210608110646092.png" alt="image-20210608110646092" style="zoom:90%;float:right" />
 
    > $\iiint_\Omega \frac{\partial R}{\partial z}dv=\iint_{D_{xy}}[R(x,y,z_2(x,y))-R(x,y,z_1(x,y))]dxdy=\oiint_\Sigma Rdxdy$
-   
+
    $\oiint_\Sigma \pmb{F·n}dS=\oiint_\Sigma (Pcos\alpha+Qcos\beta+Rcos\gamma)dS=\oiint_\Sigma Pdydz+Qdxdz+Rdxdy$
-   
+
    $=\iiint_\Omega (\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z})dv=\iiint_\Omega div \pmb{F}dv=\iiint_\Omega \pmb{\nabla·F}dv$
-   
+
    > 结论：向量场 F 通过闭曲面 $\Sigma$ 流向外侧的通量=向量场 F 的散度在闭曲面 $\Sigma$ 所围闭区域 $\Omega$ 上的积分
 
 - 题设：$\Sigma$不封闭，$\Omega$非有界闭区域——补面法
 
-  <img src="../assets/image-20210607234116992.png" alt="image-20210607234116992" style="zoom:80%;" /><img src="../assets/image-20210607234232646.png" alt="image-20210607234232646" style="zoom:80%;" />
+  <img src="assets/image-20210607234116992.png" alt="image-20210607234116992" style="zoom:80%;" /><img src="assets/image-20210607234232646.png" alt="image-20210607234232646" style="zoom:80%;" />
 
   $\oiint_{\Sigma}=\oiint_{\Sigma+\Sigma_1}-\iint_{\Sigma_1}$
 
 - 题设：P,Q,R,$\frac{\partial P}{\partial x},\frac{\partial Q}{\partial y},\frac{\partial R}{\partial z}$ 在$\Omega$上不连续(如分母无定义点)——挖洞法
 
-  <img src="../assets/image-20210607234328921.png" alt="image-20210607234328921" style="zoom:80%;" /><img src="../assets/image-20210607234621346.png" alt="image-20210607234621346" style="zoom:80%;" />
+  <img src="assets/image-20210607234328921.png" alt="image-20210607234328921" style="zoom:80%;" /><img src="assets/image-20210607234621346.png" alt="image-20210607234621346" style="zoom:80%;" />
 
   $\oiint_{\Sigma_{out}}=\oiint_{\Sigma_{out}+\Sigma'_{in}}-\oiint_{\Sigma'_{in}}=\oiint_{\Sigma_{out}+\Sigma'_{in}}+\oiint_{\Sigma'_{out}}$
 
-
 #### 通量密度(散度)
 
-> 定积分中值：$\int_a^bf(x)dx=(b-a)f(\xi)$ 计算平面面积，取y高度均值
+> 定积分中值：$\int_a^bf(x)dx=(b-a)f(\xi)$ 计算平面面积，取 y 高度均值
 >
-> 二重积分中值：$\iint_D f(x,y)dxdy=S_Df(\xi,\eta)$ 计算空间体积，取z高度均值
+> 二重积分中值：$\iint_D f(x,y)dxdy=S_Df(\xi,\eta)$ 计算空间体积，取 z 高度均值
 >
 > 三重积分中值：$\iiint_\Omega f(x,y,z)dxdydz=V_\Omega f(\xi,\eta,\zeta)$ 计算空间质量，取密度均值
 
 $div \pmb{F}=\pmb{\nabla·F}=\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}=\lim\limits_{\Omega\to (x,y,z)}\frac{1}{V}\iiint_\Omega (\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z})dv=\lim\limits_{\Omega\to (x,y,z)}\frac{1}{V}\oiint_\Sigma \pmb{F·n}dS$
 
-- 散度>0的点为正源，流体向外发散；
+- 散度>0 的点为正源，流体向外发散；
 
-- 散度<0的点为负源(汇或洞)，流体向该点汇聚吸收；
+- 散度<0 的点为负源(汇或洞)，流体向该点汇聚吸收；
 
-
-
-----
-
-
+---
 
 ### 向量场积分
 
