@@ -8,9 +8,11 @@ Y 型区域 D：穿过 D 内部平行于 x 轴的直线与 D 的边界相交不�
 
 #### 普通对称性
 
-积分区域关于 y 轴对称，z=f(x,y)关于 x 奇或偶
+积分区域 D 关于 y 轴对称，z=f(x,y)关于 x 奇，$\iint_Df(x,y)dxdy=0$
 
-积分区域关于 x 轴对称，z=f(x,y)关于 y 奇或偶
+积分区域 D 关于 x 轴对称，z=f(x,y)关于 y 奇，$\iint_Df(x,y)dxdy=0$
+
+积分区域 D 关于 原点 对称，z=f(x,y)关于 (x,y) 奇，$\iint_Df(x,y)dxdy=0$
 
 ![](../assets/multi-ingration0.png)
 
@@ -45,6 +47,16 @@ $x\xleftrightarrow{\text{对调}}y, D$ 不变或 $D$ 关于 y=x 对称 $\Rightar
 - 被积函数是否为$f(x^2+y^2), f(y/x), f(x/y)$等形式
 - 积分区域 D 是否与圆有关
 
+#### 二重积分换元法
+
+**定理** f(x,y) 在 xOy 平面上闭区域 D 上连续，变换 $T:x=x(u,v),y=y(u,v)$ 将 uOv 平面上的闭区域 D'变为 xOy 平面上的 D，满足：
+
+1. $x(u,v),y(u,v)$ 在 D'上有一阶连续偏导数，2. $J(u,v)=\frac{\partial (x,y)}{\partial (u,v)}\ne 0$，3. 变换 $T:D'\rightarrow D$一一映射
+
+$\iint_Df(x,y)dxdy=\iint_{D'}f(x(u,v),y(u,v))|J(u,v)|dudv$
+
+观察先令 $u=u(x,y), v=v(x,y)$，再反解变换 $T:x=x(u,v),y=y(u,v)$
+
 #### 直角坐标系与极坐标系互相转化后计算
 
 #### 交换积分次序计算
@@ -59,11 +71,9 @@ $x\xleftrightarrow{\text{对调}}y, D$ 不变或 $D$ 关于 y=x 对称 $\Rightar
 
 #### 普通对称性(偶倍奇 0)
 
-- 积分区域关于 y 轴对称，f(x,y,z)关于 x 奇或偶
-- 积分区域关于 x 轴对称，f(x,y,z)关于 y 奇或偶
-- 积分区域关于 xOy(z=0)对称，f(x,y,z)关于 z 奇或偶
-
-$\Omega$关于 yOz 面对称
+- 积分区域$\Omega$关于 yOz 面对称，f(x,y,z)关于 x 奇，$\iiint_\Omega f(x,y,z)=0$
+- 积分区域$\Omega$关于 zOx 面对称，f(x,y,z)关于 y 奇，$\iiint_\Omega f(x,y,z)=0$
+- 积分区域$\Omega$关于 xOy 面对称，f(x,y,z)关于 z 奇，$\iiint_\Omega f(x,y,z)=0$
 
 ![](../assets/multi-ingration8.png)
 
@@ -141,6 +151,18 @@ $\Omega=\{(x,y,z)|x^2+y^2+z^2\le R^2\} \Rightarrow\iiint\limits_{\Omega}f(x)dv=\
 
   $\int_L f(x,y)dr=\int_a^bf(r(\theta)cos\theta,r(\theta)sin\theta)|\pmb{r}'(\theta)|d\theta$
 
+#### 对称性
+
+##### 普通对称性
+
+- 曲线 $\Gamma$ 关于 yOz 面对称，f 关于 x 为奇，$\int_\Gamma f(x,y,z)dr=0$，f 关于 x 为偶，$\int_\Gamma f(x,y,z)dr=2\int_{\Gamma_1} f(x,y,z)dr$
+- 曲线 $\Gamma$ 关于 zOx 面对称，f 关于 y 为奇，$\int_\Gamma f(x,y,z)dr=0$，f 关于 y 为偶，$\int_\Gamma f(x,y,z)dr=2\int_{\Gamma_1} f(x,y,z)dr$
+- 曲线 $\Gamma$ 关于 xOy 面对称，f 关于 z 为奇，$\int_\Gamma f(x,y,z)dr=0$，f 关于 z 为偶，$\int_\Gamma f(x,y,z)dr=2\int_{\Gamma_1} f(x,y,z)dr$
+
+##### 轮换对称性
+
+x 与 y 对调，$\Gamma$ 不变，$\iint_\Gamma f(x,y,z)dr=\iint_\Gamma f(y,x,z)dr$
+
 ### 一型对面积曲面积分
 
 曲面在 yOz 平面投影$D_{yz}$，点的外法向与 x 正轴夹角$cos\alpha$<img src="assets/image-20210606163401433.png" alt="image-20210606163401433" style="float:right;" />
@@ -162,6 +184,18 @@ $dS=\frac{1}{|cos\alpha|}dydz=\frac{1}{|cos\beta|}dxdz=\frac{1}{|cos\gamma|}dxdy
   $\frac{1}{|cos\gamma|}=\frac{|\nabla g|}{|\nabla g·k|}=\frac{|(g'_x,g'_y,-1)|}{|(g'_x,g'_y,-1)(0,0,1)|}=\sqrt{g'^2_x+g'^2_y+1}=\sqrt{z'^2_x+z'^2_y+1}$
 
   $\iint_\Sigma f(x,y,z)dS=\iint_{D_{xy}} f(x,y,z(x,y))\sqrt{z'^2_x+z'^2_y+1}dxdy$
+
+#### 对称性
+
+##### 普通对称性
+
+- 曲面$\Sigma$ 关于 yOz 面对称，f 关于 x 为奇，$\iint_\Sigma f(x,y,z)dS=0$，f 关于 x 为偶，$\iint_\Sigma f(x,y,z)dS=2\iint_{\Sigma_1} f(x,y,z)dS$；
+- 曲面$\Sigma$ 关于 zOx 面对称，f 关于 y 为奇，$\iint_\Sigma f(x,y,z)dS=0$，f 关于 y 为偶，$\iint_\Sigma f(x,y,z)dS=2\iint_{\Sigma_1} f(x,y,z)dS$；
+- 曲面$\Sigma$ 关于 xOy 面对称，f 关于 z 为奇，$\iint_\Sigma f(x,y,z)dS=0$，f 关于 z 为偶，$\iint_\Sigma f(x,y,z)dS=2\iint_{\Sigma_1} f(x,y,z)dS$；
+
+##### 轮换对称性
+
+x 与 y 对调，$\Sigma$ 不变，$\iint_\Sigma f(x,y,z)dS=\iint_\Sigma f(y,x,z)dS$
 
 ### 重积分与一型线面积分应用
 
@@ -220,7 +254,7 @@ $dS=\frac{1}{|cos\alpha|}dydz=\frac{1}{|cos\beta|}dxdz=\frac{1}{|cos\gamma|}dxdy
 
 形状体积质量相同时，质量分布越集中于转动轴，转动惯量越小，角速度越快；转动惯量越大，转动时间更长
 
-$I=\Sigma_im_ir_i^2, m_i$ 质点微元的质量，$r_i$ 质元与转轴距离
+$I=\Sigma_ir_i^2m_i, m_i$ 质点微元的质量，$r_i$ 质元与转轴距离
 
 ##### 平面薄片 D
 
@@ -246,7 +280,7 @@ $I_z=\int_L (x^2+y^2)\rho(x,y,z)dr,I_O=\int_L (x^2+y^2+z^2)\rho(x,y,z)dr$
 
 $I_z=\iint_\Sigma (x^2+y^2)\rho(x,y,z)dS, I_O=\iint_\Sigma (x^2+y^2+z^2)\rho(x,y,z)dS$
 
-### 引力
+#### 引力
 
 ## 二型曲线、曲面积分
 
@@ -268,8 +302,8 @@ $W=\int_\Gamma\pmb{F}·\frac{d\pmb{r}}{dt}dt=\int_a^b(Px'(t)+Qy'(t)+Rz'(t))dt$ �
 
 - 曲线向量 关于 y 轴对称，位移微分向量 dx 方向(符号)不变，场分量 P 关于 x 为奇，则$\int_LPdx$ (做功)=0
 - 曲线向量 关于 y 轴对称，位移微分向量 dy 方向(符号)改变，场分量 Q 关于 x 为偶，则$\int_LQdy$ (做功)=0
-- 曲线向量 关于 x 轴对称，位移微分向量 dx 方向(符号)改变，场分量 P 关于 x 为偶，则$\int_LPdx$ (做功)=0
-- 曲线向量 关于 x 轴对称，位移微分向量 dy 方向(符号)不变，场分量 Q 关于 x 为奇，则$\int_LQdy$ (做功)=0
+- 曲线向量 关于 x 轴对称，位移微分向量 dx 方向(符号)改变，场分量 P 关于 y 为偶，则$\int_LPdx$ (做功)=0
+- 曲线向量 关于 x 轴对称，位移微分向量 dy 方向(符号)不变，场分量 Q 关于 y 为奇，则$\int_LQdy$ (做功)=0
 
 <img src="assets/multi-ingration16.png" style="zoom:67%;" />
 
@@ -402,13 +436,19 @@ $d\pmb{S}=\pmb{n}dS=\frac{\pmb{\nabla g}}{|\nabla g|}dS=(cos\alpha,cos\beta,cos\
 
 $=(cos\alpha\frac{1}{|cos\alpha|}dydz,cos\beta\frac{1}{|cos\beta|}dxdz,cos\gamma\frac{1}{|cos\gamma|}dxdy)$
 
-$=(\pm dydz,\pm dxdz,\pm dxdy)$ 正负号取决于外法向的方向余弦
+$=(\pm dydz,\pm dxdz,\pm dxdy)$ 正负号取决于外法向与投影坐标面法向量(正轴)的方向余弦
 
 $\iint_\Sigma\pmb{F}·d\pmb{S}=\iint_\Sigma\pmb{F·n}dS=\iint_\Sigma (Pcos\alpha+Qcos\beta+Rcos\gamma)dS\\=\iint_\Sigma Pdydz+Qdxdz+Rdxdy=\pm\iint_{D_{yz}}Pdydz\pm\iint_{D_{xz}}Qdxdz\pm\iint_{D_{xy}}Rdxdy$
 
 #### 投影坐标面转换
 
-$\iint_\Sigma P(x,y,z)dydz=\iint_{D_{xy}}P(x,y,z)\frac{cos\alpha}{cos\gamma}dxdy$
+二型曲面积分 => 一型曲面积分 => 二重积分
+
+$\iint_\Sigma P(x,y,z)dydz=\pm\iint_{D_{xy}}P(x,y,z)\frac{cos\alpha}{cos\gamma}dxdy=\mp\iint_{D_{xy}}P(x,y,z)\frac{\partial z}{\partial x}dxdy$
+
+$\iint_\Sigma Pdydz+Qdxdz+Rdxdy=\pm\iint_{D_{yz}} (P-Q\frac{\partial x}{\partial y}-R\frac{\partial x}{\partial z})dydz$
+
+$=\pm\iint_{D_{zx}} (-P\frac{\partial y}{\partial x}+Q-R\frac{\partial y}{\partial z})dzdx=\pm\iint_{D_{xy}} (-P\frac{\partial z}{\partial x}-Q\frac{\partial z}{\partial y}+R)dxdy$
 
 #### 二型曲面对称性
 
@@ -450,7 +490,7 @@ $\iint_\Sigma P(x,y,z)dydz=\iint_{D_{xy}}P(x,y,z)\frac{cos\alpha}{cos\gamma}dxdy
 
   <img src="assets/image-20210607234116992.png" alt="image-20210607234116992" style="zoom:80%;" /><img src="assets/image-20210607234232646.png" alt="image-20210607234232646" style="zoom:80%;" />
 
-  $\oiint_{\Sigma}=\oiint_{\Sigma+\Sigma_1}-\iint_{\Sigma_1}$
+  $\iint_{\Sigma}=\oiint_{\Sigma+\Sigma_1}-\iint_{\Sigma_1}$
 
 - 题设：P,Q,R,$\frac{\partial P}{\partial x},\frac{\partial Q}{\partial y},\frac{\partial R}{\partial z}$ 在$\Omega$上不连续(如分母无定义点)——挖洞法
 
