@@ -1,9 +1,5 @@
 ## 二重积分
 
-X 型区域 D：穿过 D 内部平行于 y 轴的直线与 D 的边界相交不多于两点
-
-Y 型区域 D：穿过 D 内部平行于 x 轴的直线与 D 的边界相交不多于两点
-
 ### 对称性(二重)
 
 #### 普通对称性
@@ -31,6 +27,10 @@ $x\xleftrightarrow{\text{对调}}y, D$ 不变或 $D$ 关于 y=x 对称 $\Rightar
 #### 直角坐标系
 
 后积先定限，限内画条线，先交写下限，后交写上限
+
+X 型区域 D：穿过 D 内部平行于 y 轴的直线与 D 的边界相交不多于两点
+
+Y 型区域 D：穿过 D 内部平行于 x 轴的直线与 D 的边界相交不多于两点
 
 ![](../assets/multi-ingration4.png)
 
@@ -145,8 +145,8 @@ $\Omega=\{(x,y,z)|x^2+y^2+z^2\le R^2\} \Rightarrow\iiint\limits_{\Omega}f(x)dv=\
   $\int_L f(x,y)dr=\int_a^bf(x,y(x))|r'(x)|dx$
 
 - 平面极坐标式 $r=r(\theta), \pmb{r}=r(\theta)cos\theta\pmb{i}+r(\theta)sin\theta\pmb{j}$
-  $\pmb{v}=\pmb{r}'(\theta)=\frac{d\pmb{r}}{d\theta}=(r'(\theta)cos\theta-r(\theta)sin\theta)\pmb{i}+(r'(\theta)sin\theta+r(\theta)cos\theta)\pmb{j}$
 
+  $\pmb{v}=\pmb{r}'(\theta)=\frac{d\pmb{r}}{d\theta}=(r'(\theta)cos\theta-r(\theta)sin\theta)\pmb{i}+(r'(\theta)sin\theta+r(\theta)cos\theta)\pmb{j}$
   $|\pmb{r}'(\theta)|=\sqrt{r^2(\theta)+r'^2(\theta)}$
 
   $\int_L f(x,y)dr=\int_a^bf(r(\theta)cos\theta,r(\theta)sin\theta)|\pmb{r}'(\theta)|d\theta$
@@ -161,7 +161,7 @@ $\Omega=\{(x,y,z)|x^2+y^2+z^2\le R^2\} \Rightarrow\iiint\limits_{\Omega}f(x)dv=\
 
 ##### 轮换对称性
 
-x 与 y 对调，$\Gamma$ 不变，$\iint_\Gamma f(x,y,z)dr=\iint_\Gamma f(y,x,z)dr$
+x 与 y 对调，$\Gamma$ 不变，$\int_\Gamma f(x,y,z)dr=\int_\Gamma f(y,x,z)dr$
 
 ### 一型对面积曲面积分
 
@@ -300,10 +300,10 @@ $W=\int_\Gamma\pmb{F}·\frac{d\pmb{r}}{dt}dt=\int_a^b(Px'(t)+Qy'(t)+Rz'(t))dt$ �
 
 #### 二型曲线对称性
 
-- 曲线向量 关于 y 轴对称，位移微分向量 dx 方向(符号)不变，场分量 P 关于 x 为奇，则$\int_LPdx$ (做功)=0
-- 曲线向量 关于 y 轴对称，位移微分向量 dy 方向(符号)改变，场分量 Q 关于 x 为偶，则$\int_LQdy$ (做功)=0
-- 曲线向量 关于 x 轴对称，位移微分向量 dx 方向(符号)改变，场分量 P 关于 y 为偶，则$\int_LPdx$ (做功)=0
-- 曲线向量 关于 x 轴对称，位移微分向量 dy 方向(符号)不变，场分量 Q 关于 y 为奇，则$\int_LQdy$ (做功)=0
+- 有向曲线 关于 y 轴对称，位移微分向量 dx 方向(符号)不变，场分量 P 关于 x 为奇，则$\int_LPdx$ (做功)=0
+- 有向曲线 关于 y 轴对称，位移微分向量 dy 方向(符号)改变，场分量 Q 关于 x 为偶，则$\int_LQdy$ (做功)=0
+- 有向曲线 关于 x 轴对称，位移微分向量 dx 方向(符号)改变，场分量 P 关于 y 为偶，则$\int_LPdx$ (做功)=0
+- 有向曲线 关于 x 轴对称，位移微分向量 dy 方向(符号)不变，场分量 Q 关于 y 为奇，则$\int_LQdy$ (做功)=0
 
 <img src="assets/multi-ingration16.png" style="zoom:67%;" />
 
@@ -415,7 +415,7 @@ $W=\oint_\Gamma\pmb{F}·\frac{d\pmb{r}}{dt}dt=\oint_a^b(Px'(t)+Qy'(t)+Rz'(t))dt$
 #### 环量密度(旋度)
 
 $$
-\pmb{rot A}=\pmb{\nabla\times F}=\left|
+\pmb{rot F}=\pmb{\nabla\times F}=\left|
 \begin{array}{ccc}
 \pmb{i} & \pmb{j} & \pmb{k}\\
 \frac{\partial }{\partial x} & \frac{\partial }{\partial y} & \frac{\partial }{\partial z}\\

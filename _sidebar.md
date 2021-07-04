@@ -1,5 +1,8 @@
 - [简介](README.md)
 - 高等数学
   - [多元积分](calculus/multiple-integration.md)
+  - [级数](calculus/series.md)
 - 线性代数
+  - [线性方程组](linear-algebra/linear-equations.md)
+  - [矩阵代数](linear-algebra/matrix-algebra.md)
 - 概率论与梳理统计
