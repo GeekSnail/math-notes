@@ -5,4 +5,9 @@
 - 线性代数
   - [线性方程组](linear-algebra/linear-equations.md)
   - [矩阵代数](linear-algebra/matrix-algebra.md)
+  - [行列式](linear-algebra/determinants.md)
+  - [向量空间](linear-algebra/vector-spaces.md)
+  - [特征值与特征向量](linear-algebra/eigenvalues-eigenvectors.md)
+  - [正交性与最小二乘法](linear-algebra/orthogonality-least-squares.md)
+  - [对称矩阵与二次型](linear-algebra/symmetric-metrices-quadratic-forms.md)
 - 概率论与梳理统计
