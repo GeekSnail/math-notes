@@ -107,9 +107,9 @@ $x=T_B[x]_B=[b_1...b_n][x]_B\\
 
 > **定理** V与$R^n$同构：$B=\{b_1,...,b_p\}$ 是 V 的一个基 $\Rightarrow T:x\mapsto [x]_B$ 坐标映射是由 V 映射到 $R^n$ 的一对一线性变换
 
-$\bm{u}=c_1b_1+...+c_nb_n,\ \bm{v}=d_1v_1+...+d_nv_n\\
-\bm{u+v}=(c_1+d_1)b_1+...+(c_n+d_n)b_n\\
-[\bm{u+v}]_B=[u]_B+[v]_B\\
+$\pmb{u}=c_1b_1+...+c_nb_n,\ \pmb{v}=d_1v_1+...+d_nv_n\\
+\pmb{u+v}=(c_1+d_1)b_1+...+(c_n+d_n)b_n\\
+[\pmb{u+v}]_B=[u]_B+[v]_B\\
 $
 
 ![image-20210630200616438](../assets/image-20210630200616438.png)
@@ -179,8 +179,8 @@ $x\in V,\ [x]_C$ 与 $[x]_B$ 的联系
 $\begin{cases}y_1=ax_1+bx_2\\y_2=cx_1+dx_2\end{cases}\Rightarrow
 \begin{bmatrix}y_1\\y_2\end{bmatrix}=\begin{bmatrix}a&b\\c&d\end{bmatrix}\begin{bmatrix}x_1\\x_2\end{bmatrix}$
 
-$\begin{cases}\bm{y_1}=a\bm{x_1}+b\bm{x_2}\\\bm{y_2}=c\bm{x_1}+d\bm{x_2}\end{cases}
-\Rightarrow [\bm{y_1}\ \bm{y_2}]=[\bm{x_1}\ \bm{x_2}]\begin{bmatrix}a&b\\c&d\end{bmatrix}$（不同基的基向量的线性映射）
+$\begin{cases}\pmb{y_1}=a\pmb{x_1}+b\pmb{x_2}\\\pmb{y_2}=c\pmb{x_1}+d\pmb{x_2}\end{cases}
+\Rightarrow [\pmb{y_1}\ \pmb{y_2}]=[\pmb{x_1}\ \pmb{x_2}]\begin{bmatrix}a&b\\c&d\end{bmatrix}$（不同基的基向量的线性映射）
 
 ----
 
@@ -203,16 +203,16 @@ $R^n$ 中 B 与 C 之间坐标变换：设 $[b_1]_C=\begin{bmatrix}x_1\\x_2\\x_3
 [b_2]_C=\begin{bmatrix}y_1\\y_2\\y_3\end{bmatrix},
 [b_3]_C=\begin{bmatrix}z_1\\z_2\\z_3\end{bmatrix}$
 
-$\Rightarrow [\bm{c_1\ c_2\ c_3}]\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}=\bm{b_1},
-[\bm{c_1\ c_2\ c_3}]\begin{bmatrix}y_1\\y_2\\y_3\end{bmatrix}=\bm{b_2},
-[\bm{c_1\ c_2\ c_3}]\begin{bmatrix}z_1\\z_2\\z_3\end{bmatrix}=\bm{b_3}$
+$\Rightarrow [\pmb{c_1\ c_2\ c_3}]\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}=\pmb{b_1},
+[\pmb{c_1\ c_2\ c_3}]\begin{bmatrix}y_1\\y_2\\y_3\end{bmatrix}=\pmb{b_2},
+[\pmb{c_1\ c_2\ c_3}]\begin{bmatrix}z_1\\z_2\\z_3\end{bmatrix}=\pmb{b_3}$
 
-$\Leftrightarrow \bm{[c_1\ c_2\ c_3]}
+$\Leftrightarrow \pmb{[c_1\ c_2\ c_3]}
 \begin{bmatrix}x_1&y_1&z_1\\x_2&y_2&z_2\\x_3&y_3&z_3\end{bmatrix}
-=\bm{[c_1\ c_2\ c_3][x\ y\ z]=[b_1\ b_2\ b_3]}$
+=\pmb{[c_1\ c_2\ c_3][x\ y\ z]=[b_1\ b_2\ b_3]}$
 
-$\Leftrightarrow \bm{[c_1\ c_2\ c_3\ |\ b_1\ b_2\ b_3]}\sim[I\ |\ \bm{x\ y\ z}]=[I\ |\ \bm{T_{C\gets B}}]\\
-\Leftrightarrow \bm{[b_1\ b_2\ b_3\ |\ c_1\ c_2\ c_3]}\sim[I\ |\ \bm{T_{B\gets C}}]$
+$\Leftrightarrow \pmb{[c_1\ c_2\ c_3\ |\ b_1\ b_2\ b_3]}\sim[I\ |\ \pmb{x\ y\ z}]=[I\ |\ \pmb{T_{C\gets B}}]\\
+\Leftrightarrow \pmb{[b_1\ b_2\ b_3\ |\ c_1\ c_2\ c_3]}\sim[I\ |\ \pmb{T_{B\gets C}}]$
 
 B 与 C 经标准基坐标变换：$T_B[x]_B=x=T_C[X]_C\Rightarrow [x]_c=T_C^{-1}x=T_C^{-1}T_B[x]_B=T_{C\gets B}[x]_B$
 

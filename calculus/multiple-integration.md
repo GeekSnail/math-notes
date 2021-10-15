@@ -201,6 +201,12 @@ x 与 y 对调，$\Sigma$ 不变，$\iint_\Sigma f(x,y,z)dS=\iint_\Sigma f(y,x,z
 
 #### 几何量
 
+##### 平面曲线
+
+![image-20210915001236104](../assets/image-20210915001236104.png)
+
+![image-20210915001257763](../assets/image-20210915001257763.png)
+
 ##### 平面区域
 
 曲边梯形面积 $S_D=\int_a^b|f(x)|dx$
@@ -356,7 +362,8 @@ $\Leftrightarrow\exist$ 可微势函数 $f(x,y)$, 全微分 $df=Pdx+Qdy, f^{''}_
 **计算势函数**
 
 - $f(x,y)=\int_{(a,b)}^{(x,y)}Pdx+Qdy=\int_{a}^{x}P(x,b)dx+\int_{b}^{y}Q(x,y)dy$
-- 待定函数法：$f(x,y)=\int Pdx, f'_y=Q$
+- 待定函数法：$f(x,y)=\int Pdx, f'_y=Q$​
+- 凑微分法：$d(uv)=vdu+udv,d(\frac{u}{v})=\frac{vdu-udv}{v^2}$
 
 ###### 全微分方程
 
@@ -366,9 +373,9 @@ $\exist$ 可微函数 $f(x,y)$, 全微分 $df=Pdx+Qdy=0\Rightarrow f(x,y)=C$ 隐
 
 空间区域 $\Omega$ 内的向量场 $\pmb{F}=P\pmb{i}+Q\pmb{j}+R\pmb{k}$，分量 P,Q,R 在 $\Omega$ 内连续
 
-$\Rightarrow\exist$ 可微势函数 $f, \pmb{F}=\nabla f\Leftrightarrow\forall A,B\in \Omega, \int_A^B\pmb{F}·d\pmb{r}$ 与 $\Omega$ 内连接 A,B 的路径无关
+$\exist$​ 可微势函数 $f, \pmb{F}=\nabla f\Rightarrow\forall A,B\in \Omega, \int_A^B\pmb{F}·d\pmb{r}$​ 与 $\Omega$​ 内连接 A,B 的路径无关
 
-$\int_C\pmb{F}·d\pmb{r}=\int_a^b\pmb{F}·\frac{d\pmb{r}}{dt}dt=\int_a^b\frac{df}{dt}dt=f(x(t),y(t),z(t))|_a^b=f(B)-f(A)$
+$\int_C\pmb{F}·d\pmb{r}=\int_a^b\pmb{F(r)}·\frac{d\pmb{r}}{dt}dt=\int_a^b\frac{df}{dt}dt=f(x(t),y(t),z(t))|_a^b=f(B)-f(A)$​
 
 #### 空间二型曲线计算
 
@@ -516,9 +523,7 @@ $div \pmb{F}=\pmb{\nabla·F}=\frac{\partial P}{\partial x}+\frac{\partial Q}{\pa
 
 ### 向量场积分
 
-#### 向量场，功，环量，流量
-
-##### 向量场
+#### 向量场
 
 三维向量场：$\pmb{F}(x,y,z)=M(x,y,z)\pmb{i}+N(x,y,z)\pmb{j}+P(x,y,z)\pmb{k}$
 
@@ -526,7 +531,13 @@ $div \pmb{F}=\pmb{\nabla·F}=\frac{\partial P}{\partial x}+\frac{\partial Q}{\pa
 
 ##### 梯度场
 
-$f(x,y,z)$的梯度场是梯度向量：$\nabla f=\frac{\partial f}{\partial x}\pmb{i}+\frac{\partial f}{\partial y}\pmb{j}+\frac{\partial f}{\partial z}\pmb{k}$
+![image-20210912215401792](../assets/image-20210912215401792.png)
+
+数量函数 $f(x,y,z)$的梯度场：$\nabla f=\frac{\partial f}{\partial x}\pmb{i}+\frac{\partial f}{\partial y}\pmb{j}+\frac{\partial f}{\partial z}\pmb{k}$
+
+**保守场与势函数**：保守场 F 是一个势函数 f 的梯度。$\exist\ f, \nabla f=F$​​
+
+#### 线积分
 
 ##### 力沿曲线做的功
 
@@ -566,31 +577,323 @@ $\pmb{n}=\pmb{T}\times \pmb{k}=(\frac{dx}{ds}\pmb{i}+\frac{dy}{ds}\pmb{j})\times
 
 $\int_C\pmb{F·n}ds=\int_C(M\frac{dy}{ds}-N\frac{dx}{ds})ds=\oint_CMdy-Ndx$
 
-#### 势函数与保守场,路径无关
+#### 线积分基本定理
 
-**路径无关和保守场**：空间开区域 D 上的场 F 对 D 内任意两点 A 与 B，从 A 到 B 所做的功$\int_A^BF·dr$对所有路径都相同，则 1. 积分$\int F·dr$在 D 内路径无关，2. F 在 D 上是保守场
+> 微积分基本定理：$\int_a^b f'(x)dx = f(b)-f(a)$
 
-**势函数**：F 是 D 上的场，$\exists$数量值函数 f，$F=\nabla f \Rightarrow$ f 是 F 在 D 上的一个势函数
+##### 线积分基本定理
 
-**线积分基本定理**：向量场 $F=Mi+Nj+Pk$，其分量在空间连通开区域 D 上连续，$\forall A,B\in D, \int_A^BF·dr$ 与 D 内连接 A,B 的路径无关 $\Leftrightarrow \exists$ 可微函数 f
+> 曲线 $C:\pmb{r}(t),a\le t\le b$​​​， f 在 C 上一阶偏导连续，即梯度向量 $\nabla f$​​​ 连续 $\Rightarrow \int_C \nabla f·d\pmb{r}=f(\pmb{r}(b))-f(\pmb{r}(a))$​​​
+>
+> 推论：曲线 $C_1, C_2$​​​ 具有相同点起点与终点， f 在 C 上一阶偏导连续（梯度向量场 $F=\nabla f$​​​ 连续）$\Rightarrow \int_{C_1} \nabla f·d\pmb{r}=\int_{C_2} \nabla f·d\pmb{r}$​​​​​（F 是保守场且 F 连续 $\Rightarrow$​​ 线积分与路径无关）
 
-- $F=\nabla f=\frac{\partial f}{\partial x}i+\frac{\partial f}{\partial y}j+\frac{\partial f}{\partial z}k$
-- $\int_A^BF·dr=\int_A^BMdx+Ndy+Pdz=f(B)-f(A)$
-- $\oint_A^BF·dr=0$
+![image-20210914001147620](../assets/image-20210914001147620.png)
 
-**检验 F 是否保守/检验 F 微分形式是否完全**
+![image-20210914060240941](../assets/image-20210914060240941.png)
 
-场 $\pmb{F}(x,y,z)=M(x,y,z)\pmb{i}+N(x,y,z)\pmb{j}+P(x,y,z)\pmb{k}$，其各分量函数都有一阶连续偏导数，
-则 F 是保守场，微分形式完全$\Leftrightarrow P_y=N_z, M_z=P_x, N_x=M_y$（二阶混合偏导数相等）
+##### 路径无关
+
+非单连通区域：存在一个环路（闭合路径），中间有洞
+
+![image-20210915034154162](../assets/image-20210915034154162.png)![image-20210915034208544](../assets/image-20210915034208544.png)
+
+> 对区域D内任意闭合曲线C，线积分 $\int_C \pmb{F}·d\pmb{r}$​ 与路径无关 $\Leftrightarrow\int_C \pmb{F}·d\pmb{r}=0$​
+
+![image-20210914005212114](../assets/image-20210914005212114.png)
+
+> 在连通开区域D内，向量场 F 连续，$\int_C \pmb{F}·d\pmb{r}$  与路径无关 $\Rightarrow F 是保守场, 即\ \exist\ 势函数f, \nabla f=F$​
+>
+> 推论：在连通开区域D内，向量场 F 连续，则有等价条件结论：F 是保守场 $\Leftrightarrow$​ 线积分与路径无关
+
+![image-20210914005513086](../assets/image-20210914005513086.png)
+
+![image-20210914005546065](../assets/image-20210914005546065.png)
+
+总结：
+
+![image-20210915034412373](../assets/image-20210915034412373.png)
+
+##### 保守场与势函数
+
+> 在连通区域D内，若 $\pmb{F}=P\pmb{i}+Q\pmb{j}$​​ 是保守场，P, Q 有一阶连续偏导数 $\Rightarrow \frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x}$​​
+>
+> 推论：在连通区域D内，向量场 F 有一阶连续偏导数，(F是保守场 $\Leftrightarrow$​ 线积分与路径无关) $\Rightarrow \frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x}$​
+
+![image-20210914012901170](../assets/image-20210914012901170.png)
+
+![image-20210914063632600](../assets/image-20210914063632600.png)
+
+
+
+> 判别：在单连通区域D内，向量场 $\pmb{F}=P\pmb{i}+Q\pmb{j}$​​​​，P, Q 有一阶连续偏导数，$\frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x}\Rightarrow$​​​​ F 是保守场
+>
+> 推论：在单连通区域D内，向量场 F 有一阶连续偏导数，则有等价条件结论：
+> (F是保守场 $\Leftrightarrow$ 线积分与路径无关) $\Leftrightarrow\frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x}$
+
+![image-20210914013250470](../assets/image-20210914013250470.png)
+
+![image-20210914082255706](../assets/image-20210914082255706.png)
+
+##### 能量守恒
+
+在保守场内，力做功，起点至终点间的动能增加(减少)量 = 起点至终点间的势能减少(增加)量
+
+![image-20210914013916163](../assets/image-20210914013916163.png)
+
+![image-20210914013942595](../assets/image-20210914013942595.png)
+
+#### 格林定理
+
+> 线积分与二重积分的联系
+
+定义正方向：沿闭合曲线左边的区域被该曲线包围
+
+> 正方向闭合曲线 C 包围着区域 D，向量场 $\pmb{F}=P\pmb{i}+Q\pmb{j}$​​​，P, Q 有一阶连续偏导数 $\Rightarrow \int_C Pdx+Qdy=\iint_D(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y})dA$​​
+
+![image-20210915042015596](../assets/image-20210915042015596.png)
+
+![image-20210915034757395](../assets/image-20210915034757395.png)
+
+##### 格林定理面积公式
+
+$\iint_DdA,\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}=1$
+
+$A=\oint_Cxdy=-\oint_Cydx=1/2\oint_Cxdy-ydx$​
+
+##### 格林定理扩展
+
+- 两个并区域存在公共边界时，对两区域使用格林公式会消去公共曲线积分（互为相反方向）
+- 非单连通区域（存在洞）时，区域的曲线边界由内（顺时针）外（逆时针）两曲线组成
+
+![image-20210914082032448](../assets/image-20210914082032448.png)
+
+![image-20210914082056608](../assets/image-20210914082056608.png)
+
+![image-20210914082139932](../assets/image-20210914082139932.png)
+
+![image-20210914082205270](../assets/image-20210914082205270.png)
+
+![image-20210914082232216](../assets/image-20210914082232216.png)
+
+#### 旋度与散度
+
+旋度表现为向量场，散度表现为数量场
+
+##### 旋度
+
+![image-20210914082411781](../assets/image-20210914082411781.png)
+
+![image-20210914082449253](../assets/image-20210914082449253.png)
+
+> 三元函数 f 有连续的二阶偏导数 $\Rightarrow curl(\nabla f)=0$​​
+>
+> 推论：向量场 F 是保守场 $\Rightarrow curl\ F=0$
+
+![image-20210914082903272](../assets/image-20210914082903272.png)
+
+![image-20210914082843184](../assets/image-20210914082843184.png)
+
+> 定义在域 $R^3$ 上的向量场(保证了单连通) $F=Pi+Qj+Rk$，各分量函数有连续的偏导数，旋度 $curl\ F=0\Rightarrow F$ 是保守场
+
+![image-20210914083854093](../assets/image-20210914083854093.png)
+
+物理含义
+
+![image-20210914084608474](../assets/image-20210914084608474.png)
+
+![image-20210914084626256](../assets/image-20210914084626256.png)
+
+##### 散度
+
+![image-20210914085427810](../assets/image-20210914085427810.png)
+
+> 定义在域 $R^3$​​​ 上的向量场 $F=Pi+Qj+Rk$​​​，P, Q, R 有连续的二阶偏导数 $\Rightarrow div\ curl\ F=\nabla ·(\nabla\times F)=0$​
+
+![image-20210914085450891](../assets/image-20210914085450891.png)
+
+![image-20210914085519898](../assets/image-20210914085519898.png)
+
+源：涌出来>涌入量，汇：涌入量>涌出量，无源：涌入量=涌出量
+
+![image-20210914090758499](../assets/image-20210914090758499.png)
+
+![image-20210914090840562](../assets/image-20210914090840562.png)
+
+##### 格林定理的向量形式
+
+**用旋度**
+
+![image-20210915034937807](../assets/image-20210915034937807.png)
+
+![image-20210914091104027](../assets/image-20210914091104027.png)
+
+**用散度**
+
+![image-20210915035011264](../assets/image-20210915035011264.png)
+
+![image-20210914091748049](../assets/image-20210914091748049.png)
+
+![image-20210915015404523](../assets/image-20210915015404523.png)
 
 #### 曲面面积和曲面积分
 
-xOy 平面上的曲面$f(x,y,z)=c$一点的切向量（偏导数/梯度）：($u_i, v_i$)，微元面积 $\Delta \sigma_i$ 近似为切平面上的投影微元面积 $\Delta P_i$ ，其在 xOy 平面上的投影微元面积:
+![image-20210914234351127](../assets/image-20210914234351127.png)
 
-$\Delta A_i=|(u_i\times v_i)·k|=\Delta P_i|cos\gamma_i|, \gamma_i=<u_i\times v_i, k>$
+![image-20210914234441272](../assets/image-20210914234441272.png)
 
-$\Delta P_i=\frac{\Delta A_i}{|cos\gamma_i|}$
+![image-20210914234646779](../assets/image-20210914234646779.png)
 
-$\frac{1}{|cos\gamma_i|}=\frac{|\nabla f|}{|\nabla f·k|}=\frac{|(f'_x,f'_y,f'_z)|}{|(f'_x,f'_y,f'_z)(0,0,1)|}=\frac{\sqrt{f'^2_x+f'^2_y+f'^2_z}}{|f'_z|}\xlongequal{z=f(x,y)}\frac{|(f'_x,f'_y,-1)|}{|(f'_x,f'_y,-1)(0,0,1)|}=\sqrt{f'^2_x+f'^2_y+1}=\sqrt{z'^2_x+z'^2_y+1}$
+![image-20210914234709753](../assets/image-20210914234709753.png)
 
-曲面面积=$\iint_R\frac{|\nabla f|}{\nabla f·k}dA$, k 是 R 的单位法向量
+##### 切平面
+
+![image-20210914234820648](../assets/image-20210914234820648.png)
+
+![image-20210914235200837](../assets/image-20210914235200837.png)
+
+##### 曲面面积
+
+> 光滑参数面方程 $r(u,v)=x(u,v)i+y(u,v)j+z(u,v)k,u,v\in D.$​ 对应的曲面 S 面积： $A(S)=\iint_D|r_u\times r_v|dA$​
+
+![image-20210915000149448](../assets/image-20210915000149448.png)
+
+**参数曲面面积**
+
+![image-20210915000425037](../assets/image-20210915000425037.png)
+
+**函数 z=f(x,y) 的曲面面积**
+
+$r_x=(1,0,\frac{\partial f}{\partial x}),r_y=(0,1,\frac{\partial f}{\partial y})$
+
+$\Delta S=|r_x\times r_y|\ 对应\ \Delta A=1·1$，曲面微元面积：坐标面投影微元面积 = $|r_x\times r_y|:1$
+
+![image-20210915000521322](../assets/image-20210915000521322.png)
+
+![image-20210915001731000](../assets/image-20210915001731000.png)
+
+#### 曲面积分
+
+##### 参数曲面
+
+![image-20210915001824965](../assets/image-20210915001824965.png)
+
+**参数曲面积分**
+
+![image-20210915002247657](../assets/image-20210915002247657.png)
+
+**函数 z=g(x,y) 的曲面积分**
+
+![image-20210915002408093](../assets/image-20210915002408093.png)
+
+![image-20210915002500264](../assets/image-20210915002500264.png)
+
+总结：
+
+![image-20210915035809656](../assets/image-20210915035809656.png)
+
+##### 有向曲面
+
+![image-20210915002808782](../assets/image-20210915002808782.png)
+
+**函数 z=g(x,y) 的有向曲面的单位法向量**
+
+![image-20210915002908195](../assets/image-20210915002908195.png)
+
+**向量函数参数式有向曲面的单位法向量**
+
+![image-20210915003042461](../assets/image-20210915003042461.png)
+
+![image-20210915003507314](../assets/image-20210915003507314.png)
+
+##### 向量场曲面积分
+
+![image-20210915003936368](../assets/image-20210915003936368.png)
+
+> 在有向曲面 S 上，向量场 F 连续，单位法向量 n，F 在 S 上的曲面积分 $\iint_S\pmb{F}·d\pmb{S}=\iint_S\pmb{F·n}dS$
+
+![image-20210915004242612](../assets/image-20210915004242612.png)
+
+**向量函数曲面的向量场积分**
+
+![image-20210915004451724](../assets/image-20210915004451724.png)
+
+![image-20210915004722193](../assets/image-20210915004722193.png)
+
+**函数z=f(x,y)曲面的向量场积分**
+
+![image-20210915004813820](../assets/image-20210915004813820.png)
+
+![image-20210915005238691](../assets/image-20210915005238691.png)
+
+**隐函数曲面 g(x,y,z)=c 的向量场积分**
+
+![image-20210915040738188](../assets/image-20210915040738188.png)
+
+#### Stokes 定理
+
+![image-20210915233317853](../assets/image-20210915233317853.png)
+
+> $R^3$​ 上有向曲面 **S** 以一个简单闭合正向曲线 C 为边界（C 与 S 外法向成右手系），向量场 **F** 的各分量在包含曲面 S 的开区域有连续一阶偏导数 $\Rightarrow \int_C \pmb{F}·d\pmb{r}=\iint_S curl\ \pmb{F}·d\pmb{S}$​
+
+$\int_C \pmb{F·T}dr=\iint_S curl\ \pmb{F·n}dS$
+
+$curl\ F=\nabla\times F$
+
+![image-20210915233335568](../assets/image-20210915233335568.png)
+
+**格林定理基于平面，是Stokes定理的特别例子**
+
+![image-20210916021313119](../assets/image-20210916021313119.png)
+
+![image-20210915234057122](../assets/image-20210915234057122.png)
+
+**以函数 z=g(x,y) 证明 Stokes 定理**
+
+![image-20210915234245737](../assets/image-20210915234245737.png)
+
+![image-20210915234414081](../assets/image-20210915234414081.png)
+
+##### 相同有向曲线可对应不同曲面
+
+![image-20210916012009195](../assets/image-20210916012009195.png)
+
+![image-20210916012043548](../assets/image-20210916012043548.png)
+
+##### Stokes 定理扩展-有洞
+
+![image-20210916021957720](../assets/image-20210916021957720.png)
+
+![image-20210916022014536](../assets/image-20210916022014536.png)
+
+##### 空间曲线-路径无关
+
+> 判别：在 $R^3$ 单连通区域 D 内，向量场 $F=Pi+Qj+Rk$，P,Q,R 有一阶连续偏导数，$\nabla \times F=0\Rightarrow$​​​​​​​​​​​​ F 是保守场，线积分路径无关​（对 D 内任意闭合曲线 C，$\oint_CF·dr=0$​）
+
+##### 总结
+
+![image-20210916023045589](../assets/image-20210916023045589.png)
+
+#### Gauss 定理
+
+> $R^3$​​ 上闭区域 **E** 被有向闭曲面 **S** 包围，向量场 **F** 的各分量在包含空间闭区域 E 的开区域有连续一阶偏导数 $\Rightarrow \iint_S \pmb{F}·d\pmb{S}=\iiint_E div\ \pmb{F}·dV=\iint_S \pmb{F·n}dS$​
+
+$div\ F=\nabla ·F$
+
+![image-20210916012724380](../assets/image-20210916012724380.png)
+
+![image-20210916014808023](../assets/image-20210916014808023.png)
+
+![image-20210916014840076](../assets/image-20210916014840076.png)
+
+##### Gauss 定理扩展
+
+![image-20210916020656135](../assets/image-20210916020656135.png)
+
+![image-20210916020714764](../assets/image-20210916020714764.png)
+
+#### 总结
+
+![image-20210916020748633](../assets/image-20210916020748633.png)
+
+![image-20210916025620482](../assets/image-20210916025620482.png)
+
