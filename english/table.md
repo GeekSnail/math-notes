@@ -199,5 +199,86 @@
 | arth·ritis       | n. 关节炎                                                    |                                                              |
 | attack           | n. 攻击、侵袭、突发、进攻、损害                              | it could increase the risk of heart attacks                  |
 
-## 2007
+
+
+## 2007 
+
+### Text3 The Middle Class on the Precipice
+
+| word                          | explanation                                                  |                                                              |
+| ----------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| preci·pice                    | 悬崖/峭壁；险境/危局/绝境                                    |                                                              |
+| count on                      | to trust sb to do sth or to be sure that sth will happen 依赖，依靠，指望（某人做某事）；确信（某事会发生） | that once could **count on** hard work and **fair play to** keep itself financially **secure** |
+| fair play to                  | 按规则比赛；公平办事                                         |                                                              |
+| secure                        | (长期)稳固的                                                 |                                                              |
+| pink slip                     | 解雇通知书 slip 纸片                                         | Now a pink slip, a bad diagnosis, or a disappearing spouse can reduce a family from solidly middle class to newly poor in a few months |
+| spouse                        | 配偶, 夫或妻                                                 |                                                              |
+| budget                        | n. 预算；v.编制预算/安排开支                                 |                                                              |
+| paycheck                      | n. 付薪水的支票，薪水                                        | Today’ s families have **budgeted** to the limits of their new two-**paycheck** status. |
+| back-up                       | 增援/后援；备份                                              |                                                              |
+| lay off sb. / sb. get laid of | (因工作不多而)解雇/裁员                                      |                                                              |
+| net                           | n. (保护性)网罩                                              | safety net 安全保障                                          |
+| insurance                     |                                                              | unemployment insurance or disability insurance 失业/伤残保险 |
+| weather                       | v. (因受风吹/日晒/雨淋,使)褪色/变色/变形；<br />经受住/平安渡过（困难） | This “added-worker effect” could support the safety net to help families **weather** bad times. |
+| disruption                    | 中断;扰乱;混乱                                               |                                                              |
+| fortune                       | n. 机会/运气；大笔钱/财产                                    | a disruption to family **fortunes** can no longer be made up with extra income |
+| absorb                        | v. 经受，承受[变革/影响等]; 承担费用                         | families have been asked to **absorb** much more risk in their retirement income |
+| join                          | become a member of an organization, a company, a club, etc   | those in the auto industry are **joining** millions of families who must worry about interest rates |
+| harsh                         | a. 严峻/恶劣，刺眼/刺耳/粗糙                                 |                                                              |
+| outlive                       | v. 比 … 活得长；(在 … 结束/消失后)继续存在                   | and the **harsh** reality that they may **outlive** their retirement money |
+| social security               | 社会保障体系                                                 |                                                              |
+| saving                        | n. 节约/节省，储蓄/存款                                      | savings-account 储蓄账户 <br />health-savings plan 健康储蓄计划 |
+| trade...                      | exchange 互相交换/以物易物                                   | with retirees **trading** much or all of their guaranteed **payments** for **payments** depending on investment returns. |
+| payment                       | n. 付款/收款，款项，报酬                                     |                                                              |
+| not...any better              | 没有 任何/一点 变好/改善                                     | For younger families, the picture is **not any better**      |
+| bear                          | bore/borne, 负载/携带/忍受承担                               | Both the absolute cost of **healthcare** and the share of it **borne** by families have risen |
+| healthcare                    | the service of providing medical care 医疗(服务)             |                                                              |
+| deductible                    | a. 可扣除/可减免；<br />n. 免赔额；自负额                    | with much higher **deductibles** and a large new **dose** of investment risk for families’ future healthcare |
+| dose                          | an amount of sth 一份/一次/一点                              |                                                              |
+| demographics                  | 人口统计数据                                                 |                                                              |
+| work against                  | 妨碍/对...不利<br />work 产生影响/作用                       | Even **demographics** are **working against** the middle class family, as the **odds** of having a weak elderly parent |
+| odds                          | 可能性/几率/概率                                             |                                                              |
+| attendant                     | n. 服务员/侍者, 护理者                                       | all the attendant need for physical and financial assistance |
+| -fold                         | 乘以/…倍；由 … 部分组成                                      | to increase tenfold<br />have jumped eightfold               |
+| look (a.) like                |                                                              | much of this **looks far less like** an opportunity to exercise more financial responsibility, and **a good deal more like** a frightening acceleration of the wholesale shift... |
+| wholesale                     | a. 批发，大规模的                                            |                                                              |
+| shift A onto B                | n. 移动/转移                                                 | more like a frightening acceleration of the wholesale **shift** of financial risk onto their already overburdened shoulders. |
+| compensate                    | 补偿/弥补，抵消                                              | compensate for the reduced pensions. 退休金                  |
+| fallout                       | 后果/余波，核辐射                                            |                                                              |
+
+### Text4 Information Security
+
+| word                              | explanation                                                  |                                                              |
+| --------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| sort out                          | 整理/解决/安排，分离出，使...意识到错/收拾...                |                                                              |
+| compliance                        | 遵守;服从 Compliance with something, for example a law, treaty, or agreement means doing what you are required or expected to do | bosses have finally **sorted out** their worst accounting and **compliance** troubles, |
+| feeble                            | a. 微弱/虚弱/软弱/无力的                                     | and improved their feeble corporation governance             |
+| corporation                       | 公司/企业                                                    |                                                              |
+| nasty                             | a. bad/unpleasant/unkind<br />dangerous/serious/offensive    | a new problem threatens to earn them the sort of **nasty** headlines |
+| executive suite                   | (CEO/服务)办公室                                             | that inevitably lead to heads rolling in the **executive suite** |
+| odd                               | a. 少量/微小/不重要的；                                      |                                                              |
+| put right                         | 恢复正常/纠正                                                |                                                              |
+| business                          | 商业/商务/公事/生意/营业额/企业/商店/涉及(相关)的事(责任)/要事/事件 | Left, until now, to **odd**, low-level IT staff to **put right**, information protection is now high on the boss’ s agenda in **businesses** of every variety |
+| contractor                        | 承包商                                                       | American defense contractor                                  |
+| peer                              | n. 同辈/身份(地位)相同的人, (英国)贵族 v. 仔细看             | ...have left managers hurriedly peering into their intricate IT systems |
+| that...should...                  | use should in 'that' clauses after certain verbs, nouns, and adjectives when you are talking about a future event or situation. 应该/能够/竟然 | The mystery is that this **should** come as a surprise to any boss. |
+| dim                               | a. 昏暗/模糊/暗淡/迟钝 v. 变暗/减弱                          | it should be obvious to the **dimmest** executive that trust is easily destroyed and hugely expensive to restore |
+| few...are more likely to A than B | 没有什么比...B...更能...A...                                 | **few** things are **more likely to** destroy trust **than** a company letting sensitive personal data get into the wrong hands. |
+| state of affairs                  | 事态；情况；形势                                             | The current **state of affairs** may have been **encouraged** by the lack of legal **penalty** for data leakage |
+| encourage                         | v. 刺激;助长/促进(发生)                                      |                                                              |
+| penalty                           | v. 处罚/不利结果/罚球                                        |                                                              |
+| until now/recently A, B           | 直到现在/最近A，(在此之前)B                                  | **Until** California **recently** passed a law, American firms did not have to tell anyone, even the victim, when data went **astray** |
+| astray                            | lead...astray 误导/使出错，go astray 丢失                    |                                                              |
+| round                             | n. 阶段/一轮，(比赛)回合/轮次/局/场，圆形，走访              | lots of proposed data-security legislation is now doing the **rounds** in Washington, D.C. |
+| overshadow                        | v. 使黯然失色/相形见绌，蒙上阴影，遮挡/遮蔽                  | the theft of information about some 40million credit-card accounts, overshadowed a hugely important decision a day earlier by America’ s Federal Trade Commission |
+| a day earlier                     | 前一天                                                       |                                                              |
+| put sb. on notice that...         | 通知某人...                                                  | that **puts** corporate America **on notice that** regulators will act if firms fail to provide adequate datasecurity |
+
+
+
+
+
+
+
+
 
