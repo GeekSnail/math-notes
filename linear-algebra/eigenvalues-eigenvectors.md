@@ -97,8 +97,9 @@ x\in V, [x]_B\in R^n,\ T(x)$ 的坐标向量 $[T(x)]_C\in R^m$
 $if\ x=r_1b_1+...+r_nb_n, [x]_B=\begin{bmatrix}r_1\\\vdots\\r_n\end{bmatrix}
 \Rightarrow T(x)=r_1T(b_1)+...+r_nT(b_n)
 \\\Rightarrow [T(x)]_C=r_1[T(b_1)]_C+...+r_n[T(b_n)]_C
-=[[T(b_1)]_C\ ...\ [T(b_n)]_C]\begin{bmatrix}r_1\\\vdots\\r_n\end{bmatrix}=M[x]_B\\
-M=[[T(b_1)]_C\ ...\ [T(b_n)]_C]$ 为 T 相对于基 B 和  C 的矩阵
+=[[T(b_1)]_C\ ...\ [T(b_n)]_C]\begin{bmatrix}r_1\\\vdots\\r_n\end{bmatrix}=T'_{C\gets T(B)}[x]_B$
+
+$T'_{C\gets T(B)}=[[T(b_1)]_C\ ...\ [T(b_n)]_C]$​ 为 T 相对于基 B 和  C 的矩阵
 
 ![image-20210702180658708](../assets/image-20210702180658708.png)
 
@@ -106,9 +107,9 @@ M=[[T(b_1)]_C\ ...\ [T(b_n)]_C]$ 为 T 相对于基 B 和  C 的矩阵
 
 ![image-20210702183411021](../assets/image-20210702183411021.png)
 
-**V 到 V 的线性变换**
+**同一空间 V 到 V 的线性变换**
 
-$W=V,C=B \Rightarrow M=[[T(b_1)]\ ...\ [T(b_n)]]$ 为 T 相对于基 B 的矩阵，记：$[T]_B$
+$W=V,C=B \Rightarrow T'_{B\gets T(B)}=[[T(b_1)]\ ...\ [T(b_n)]]$​ 为 T 相对于基 B 的矩阵，记：$[T]_B$​
 
 $x\in V,\ [T(x)]_B=[T]_B[x]_B$
 
@@ -116,9 +117,9 @@ $x\in V,\ [T(x)]_B=[T]_B[x]_B$
 
 **$R^n$ 上的线性变换**
 
-> **定理** 对角矩阵表示 
+> **定理** 对角矩阵表示
 >
-> $\exist D_{n\times n}对角阵,P=[b_1...b_n],A=PDP^{-1},R^n 基B=\{b_1...b_n\}\Rightarrow T:x\mapsto Ax$ 相对基 B 的矩阵 $[T]_B=D$
+> $\exist D_{n\times n}对角阵,P=[b_1...b_n],A=PDP^{-1},R^n 基B=\{b_1...b_n\}(A的特征向量)\Rightarrow T:x\mapsto Ax$​ 相对其特征向量基 B 的矩阵 $[T]_B=D$​
 >
 > $T:x\mapsto Ax, T:u\mapsto Du$ 是相对于不同基的同一个线性变换（A 相似 D）
 
@@ -126,13 +127,19 @@ $x\in V,\ [T(x)]_B=[T]_B[x]_B$
 x=P[x]_B,\ [x]_B=P^{-1}x$
 
 $T(x)=Ax\Rightarrow [T]_B=[[T(b_1)]_B...[T(b_n)]_B]\\
-=[[Ab_1]_B...[Ab_n]_B]=[P^{-1}Ab_1...P^{-1}Ab_n]=P^{-1}A[b_1...b_n]=P^{-1}AP=D$
+=[[Ab_1]_B...[Ab_n]_B]=[P^{-1}Ab_1...P^{-1}Ab_n]=P^{-1}A[b_1...b_n]=P^{-1}AP=D$​
+
+```
+     x --A--> Ax    = PDP^-1*x
+P^-1*↓        ↑P*
+  [x]p --D--> [Ax]p = D[x]p = DP^-1*x
+```
 
 **矩阵表示的相似性**
 
-$if\ A\ 相似\ C,P=[b_1...b_n],A=PDP^{-1},B=\{b_1...b_n\}\Rightarrow T:x\mapsto Ax$ 相对基 B 的矩阵 $[T]_B=C$
+$if\ A\ 相似\ C,P=[b_1...b_n],A=PCP^{-1},B=\{b_1...b_n\}\Rightarrow T:x\mapsto Ax$​ 相对基 B 的矩阵 $[T]_B=C$​
 
 ![image-20210702193112326](../assets/image-20210702193112326.png)
 
-## 5.5 复特征值
+## 5.5 复特征值*
 

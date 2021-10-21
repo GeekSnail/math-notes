@@ -22,7 +22,7 @@ n 次多项式集合 $P_n:p(t)=a_0+a_1t+a_2t^2+...+a_nt^n$
 
 ![image-20210630172107781](../assets/image-20210630172107781.png)
 
-矩阵$A_{m\times n}$的列空间：A的(主元)列的所有线性组合 $Ax$ 的集合，
+矩阵$A_{m\times n}$的列空间：A的(主元)列的所有线性组合 $Ax$​ 的集合，线性变换 $x\mapsto Ax$ 的值域
 
 记：$Col\ A=Span\{a_1,...,a_n\}=\{b:b=Ax,x\in R^n\}\subset R^m$
 
@@ -107,10 +107,9 @@ $x=T_B[x]_B=[b_1...b_n][x]_B\\
 
 > **定理** V与$R^n$同构：$B=\{b_1,...,b_p\}$ 是 V 的一个基 $\Rightarrow T:x\mapsto [x]_B$ 坐标映射是由 V 映射到 $R^n$ 的一对一线性变换
 
-$\pmb{u}=c_1b_1+...+c_nb_n,\ \pmb{v}=d_1v_1+...+d_nv_n\\
+证：$\pmb{u}=c_1b_1+...+c_nb_n,\ \pmb{v}=d_1b_1+...+d_nb_n\\
 \pmb{u+v}=(c_1+d_1)b_1+...+(c_n+d_n)b_n\\
-[\pmb{u+v}]_B=[u]_B+[v]_B\\
-$
+[\pmb{u+v}]_B=[u]_B+[v]_B,\ [c\pmb{u}]_B=c[\pmb{u}]_B$
 
 ![image-20210630200616438](../assets/image-20210630200616438.png)
 
@@ -179,14 +178,16 @@ $x\in V,\ [x]_C$ 与 $[x]_B$ 的联系
 $\begin{cases}y_1=ax_1+bx_2\\y_2=cx_1+dx_2\end{cases}\Rightarrow
 \begin{bmatrix}y_1\\y_2\end{bmatrix}=\begin{bmatrix}a&b\\c&d\end{bmatrix}\begin{bmatrix}x_1\\x_2\end{bmatrix}$
 
-$\begin{cases}\pmb{y_1}=a\pmb{x_1}+b\pmb{x_2}\\\pmb{y_2}=c\pmb{x_1}+d\pmb{x_2}\end{cases}
-\Rightarrow [\pmb{y_1}\ \pmb{y_2}]=[\pmb{x_1}\ \pmb{x_2}]\begin{bmatrix}a&b\\c&d\end{bmatrix}$（不同基的基向量的线性映射）
+$\begin{cases}\pmb{y_1}=a\pmb{x_1}+c\pmb{x_2}\\\pmb{y_2}=b\pmb{x_1}+d\pmb{x_2}\end{cases}
+\Rightarrow [\pmb{y_1}\ \pmb{y_2}]=[\pmb{x_1}\ \pmb{x_2}]\begin{bmatrix}a&b\\c&d\end{bmatrix}$​​（不同基的基向量的线性映射）
 
 ----
 
 ![image-20210701165127812](../assets/image-20210701165127812.png)
 
 ![image-20210701165206377](../assets/image-20210701165206377.png)
+
+$\pmb{x}=[\pmb{b_1}\ \pmb{b_2}]\begin{bmatrix}3\\1\end{bmatrix}=[\pmb{c_1}\ \pmb{c_2}]\begin{bmatrix}4&-6\\1&1\end{bmatrix}\begin{bmatrix}3\\1\end{bmatrix}$​​​​​​
 
 ![image-20210701165228971](../assets/image-20210701165228971.png)
 
@@ -214,5 +215,5 @@ $\Leftrightarrow \pmb{[c_1\ c_2\ c_3]}
 $\Leftrightarrow \pmb{[c_1\ c_2\ c_3\ |\ b_1\ b_2\ b_3]}\sim[I\ |\ \pmb{x\ y\ z}]=[I\ |\ \pmb{T_{C\gets B}}]\\
 \Leftrightarrow \pmb{[b_1\ b_2\ b_3\ |\ c_1\ c_2\ c_3]}\sim[I\ |\ \pmb{T_{B\gets C}}]$
 
-B 与 C 经标准基坐标变换：$T_B[x]_B=x=T_C[X]_C\Rightarrow [x]_c=T_C^{-1}x=T_C^{-1}T_B[x]_B=T_{C\gets B}[x]_B$
+B 与 C 经标准基坐标变换：$T_B[x]_B=x=T_C[x]_C\Rightarrow [x]_c=T_C^{-1}x=T_C^{-1}T_B[x]_B=T_{C\gets B}[x]_B$​
 

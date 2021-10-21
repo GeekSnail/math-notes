@@ -27,12 +27,12 @@ A 的谱：A 的特征值集合
 
 **谱分解**
 
-$if\ A=PDP^{-1}, P=[u_1\ ...\ u_n]$ 列是 A 的单位正交特征向量，对角矩阵 $D:D_{ii}=\lambda_i, P^{-1}=P^T\\
+$if\ A=PDP^{-1}, P=[u_1\ ...\ u_n]$​ 列是 A 的单位正交特征向量，对角矩阵 $D:D_{ii}=\lambda_i, P^{-1}=P^T\\
 \Rightarrow A=PDP^T=[u_1\ ...\ u_n]
 \begin{bmatrix}\lambda_1&&0\\&\ddots&\\0&&\lambda_n\end{bmatrix}
 \begin{bmatrix}u_1^T\\\vdots\\u_n^T\end{bmatrix}
 =[\lambda_1u_1\ ...\ \lambda_nu_n]\begin{bmatrix}u_1^T\\\vdots\\u_n^T\end{bmatrix}\\
-=\lambda_1u_1u_1^T+...+\lambda_nu_nu_n^T$
+=\lambda_1u_1u_1^T+...+\lambda_nu_nu_n^T$（列行法则）​
 
 $u_ju_j^T$ 是秩为1的 $n\times n$ 投影矩阵，$(u_ju_j^T)x$ 是 x 在 $u_j$ 生成的子空间上的[正交投影](linear-algebra/orthogonality-least-squares?id=_63-正交投影)
 
@@ -42,10 +42,10 @@ $u_ju_j^T$ 是秩为1的 $n\times n$ 投影矩阵，$(u_ju_j^T)x$ 是 x 在 $u_j
 >
 > 二次型的矩阵：$A_{n\times n}$ 对称矩阵
 
-$R^3$ 中的二次型：$Q(x)=x^TAx=[x_1\ x_2\ x_3]
+$R^3$​ 中的二次型：$Q(x)=x^TAx=[x_1\ x_2\ x_3]
 \begin{bmatrix}a&d&f\\d&b&e\\f&e&c\end{bmatrix}
 \begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}
-=ax_1^2+bx_2^2+cx_3^2+2dx_1x_2+2ex_1x_2+2fx_1x_2$
+=ax_1^2+bx_2^2+cx_3^2+2dx_1x_2+2ex_2x_3+2fx_1x_3$​
 
 **二次型的变量代换**
 
@@ -74,7 +74,7 @@ $Q(x)=x^TAx, A_{2\times 2}$ 可逆对称 $\Rightarrow x^TAx=c$ 的 x 集合对�
 
 $A_{n\times n}$，二次型 $Q(x)=x^TAx$ 是一个定义域为 $R^n$ 的实值函数
 
-$R^3$ 空间 $x=(x_1,x_2),x_3=Q(x)=x^TAx$
+$R^3$​​ 空间 $Q(x)$ 定义域中的每个点 $x=(x_1,x_2),\ 有x_3=Q(x)=x^TAx$​​
 
 ![image-20210704003627920](../assets/image-20210704003627920.png)
 
@@ -95,11 +95,11 @@ $R^3$ 空间 $x=(x_1,x_2),x_3=Q(x)=x^TAx$
 > - 不定的 $\Leftrightarrow \exist \lambda >0,\exist \lambda <0$
 
 ## 7.3 条件优化
-二次型 $Q(x)$ 在 $x^Tx=1(\|x\|=1)$ 条件下的最值
+二次型 $Q(x)$​​ 在 $x^Tx=1(\|x\|=1)$​​ 条件下的最值。如：$\R^3$​中二次型函数在单位圆上的条件极值
 
-> **定理** A 是对称矩阵，$m=min\{x^TAx:\|x\|=1\},M=max\{x^TAx:\|x\|=1\}\Rightarrow m=\lambda_{min},M=\lambda_{max}$
+> **定理** A 是对称矩阵，$min\{x^TAx:\|x\|=1\}=\lambda_{min},max\{x^TAx:\|x\|=1\}=\lambda_{max}$​​
 >
-> $if\ x$ 是对应 m 的单位特征向量 $\Rightarrow Q(x)=m,\ if\ x$ 是对应 M 的单位特征向量 $\Rightarrow Q(x)=M$
+> $if\ x$ 是对应 $\lambda_{min}$ 的单位特征向量 $\Rightarrow Q(x)=\lambda_{min},\ if\ x$ 是对应 $\lambda_{max}$ 的单位特征向量 $\Rightarrow Q(x)=\lambda_{max}$
 
 证：$A\xlongequal{正交对角化}PDP^{-1},\\
 let\ x=Py, Q(x)=x^TAx=y^TDy,\|x\|=\|Py\|=\|y\|\\
@@ -107,7 +107,7 @@ let\ P=[u_1\ u_2\ u_3],\lambda_1\ge\lambda_2\ge\lambda_3,\ \forall y\in R^3,\|y\
 \Rightarrow y^TDy=\lambda_1y_1^2+\lambda_2y_2^2+\lambda_3y_3^2
 \le \lambda_1(y_1^2+y_2^2+y_3^2)=\lambda_1\|y\|^2=\lambda_1$
 
-$\exist\ y=e_1=(1,0,0)\Rightarrow x=Pe_1=[u_1\ u_2\ u_3]\begin{bmatrix}1\\0\\0\end{bmatrix}=u_1,\ Q(x)=x^TAx=y^TDy=\lambda_1=M$
+$\exist\ y=e_1=(1,0,0)\Rightarrow x=Pe_1=[u_1\ u_2\ u_3]\begin{bmatrix}1\\0\\0\end{bmatrix}=u_1,\ Q(x)=x^TAx=y^TDy=\lambda_1=\lambda_{max}$
 
 ## 7.4 奇异值分解
 A 有分解式 $A=PDP^{-1}$ 的必要条件：$A_{n\times n}$ 方阵，
@@ -133,7 +133,7 @@ If\ A$ 有 r 个非零奇异值 $\sigma_{1...r}>0\Rightarrow \{Av_1,...,Av_r\}$ 
 
 **奇异值分解**
 
-$\Sigma_{m\times n}=\begin{bmatrix}D_{r\times r}&0\\0&\bm{0}_{(m-r)\times (n-r)}\end{bmatrix}$ （$if\ r=m=n$，则没有零子矩阵）
+$\Sigma_{m\times n}=\begin{bmatrix}D_{r\times r}&0\\0&\pmb{0}_{(m-r)\times (n-r)}\end{bmatrix}$ （$if\ r=m=n$，则没有零子矩阵）
 
 > **定理** 奇异值分解(SVD)：$A_{m\times n},rank\ A=r\\
 > \Rightarrow \exist\Sigma_{m\times n},D对角线元d_{11...rr}=\sigma_{1...r},\sigma_1\ge...\ge\sigma_r>0,\ 
@@ -158,7 +158,7 @@ $\Sigma_{m\times n}=\begin{bmatrix}D_{r\times r}&0\\0&\bm{0}_{(m-r)\times (n-r)}
    $u_{r+1},...,u_m与\{u_1,...,u_r\}$ 正交 $\Leftrightarrow 
    方程 \begin{bmatrix}u_1^T\\\vdots\\u_r^T\end{bmatrix}x=0$ **解集的基** 应用施密特正交化，标准化
 
-## 7.5 图像处理和统计学中的应用
+## 7.5 图像处理和统计学中的应用*
 
 
 

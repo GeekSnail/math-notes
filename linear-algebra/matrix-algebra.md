@@ -14,13 +14,15 @@ $A_{m\times n}+B_{m\times n}=[a_1+b_1\ ...\ a_n+b_n]$
 
 $rA_{m\times n}=[ra_1\ ra_2\ ...\ ra_n]$
 
-**矩阵乘法**
+### 矩阵乘法
 
 复合映射：$x\rightarrow Bx\rightarrow A(Bx)$，$A(Bx)=(AB)x$
 
-> **定义** 矩阵 $A_{m\times n},\ B_{n\times p},\ (AB)_{m\times p}=[Ab_1\ ...\ Ab_p]$
+> **定义** 矩阵 $A_{m\times n},\ B_{n\times p},\ (AB)_{m\times p}=[Ab_1\ ...\ Ab_p]=\begin{bmatrix}a_1B\\\vdots\\a_mB\end{bmatrix}$​
 >
-> $AB$​ 的每一列是 A 的各列以 B 的对应列元素为权的线性组合
+> $AB$​​​​​ 的每一列是 A 的各列以 B 的对应列元素为权的线性组合 $col_j(AB)=A·b_j$​
+>
+> $AB$​​​ 的每一行是 B 的各行以 B 的对应行元素为权的线性组合 $row_i(AB)=a_i·B$​​​
 
 ![image-20210924193357723](../assets/image-20210924193357723.png)
 
@@ -28,7 +30,13 @@ $rA_{m\times n}=[ra_1\ ra_2\ ...\ ra_n]$
 >
 > AB 的 i 行 j 列元素：A 的 i 行与 B 的 j 列对应元素乘积之和
 >
-> $(AB)_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+...+a_{in}b_{nj}$
+> $(AB)_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+...+a_{in}b_{nj}$​
+
+![image-20211020155216002](../assets/image-20211020155216002.png)
+
+计算 AB 的列行法则
+
+![image-20211020160913716](../assets/image-20211020160913716.png)
 
 **矩阵乘法性质**
 
@@ -57,7 +65,7 @@ $rA_{m\times n}=[ra_1\ ra_2\ ...\ ra_n]$
 
 $A^0=I$
 
-**矩阵转置**
+### 矩阵转置
 
 $A_{m\times n}$ 转置 $(A^T)_{n\times m}$ 的列是 A 的对应行构成
 
@@ -69,7 +77,21 @@ $A_{m\times n}$ 转置 $(A^T)_{n\times m}$ 的列是 A 的对应行构成
 >
 > $(rA)^T=rA^T$
 >
-> $(AB)^T=B^TA^T$ 矩阵乘积的转置=逆序矩阵转置的乘积
+> $(AB)^T=B^TA^T$​​ 矩阵乘积的转置=逆序矩阵转置的乘积
+>
+> $(A^{-1})^T=(A^T)^{-1}$
+
+$Ax$​​ combines the columns of $A$​​ while $x^TA^T$ combines the rows of $A^T$
+
+**向量点乘（内积）与矩阵转置乘**
+
+$x^Ty$​ is a number, $xy^T$ is a matrix.
+
+![image-20211020172727373](../assets/image-20211020172727373.png)
+
+$(Ax)^Ty = x^T (A^T y)$ Inner product of $Ax$ with $y$ = Inner product of $x$ with $A^Ty$
+
+![image-20211020173958929](../assets/image-20211020173958929.png)
 
 ## 2.2 矩阵的逆
 
@@ -79,9 +101,9 @@ $A_{m\times n}$ 转置 $(A^T)_{n\times m}$ 的列是 A 的对应行构成
 
 > **定理** $A=\begin{bmatrix}a&b\\c&d\end{bmatrix},\ ad-bc\ne0\Rightarrow A^{-1}=\frac{1}{ad-bc}\begin{bmatrix}d&-b\\-c&a\end{bmatrix}$
 >
-> $A_{2\times 2}$ 可逆 $\Leftrightarrow$ $det A\ne0$
+> $A_{2\times 2}$​ 可逆 $\Leftrightarrow$​ $|A|\ne0$​
 
-> **定理**  $A_{n\times n}$ 可逆 $\Rightarrow \forall b\in R^n, Ax=b$ 有唯一解 $x=A^{-1}b$
+> **定理**  $A_{n\times n}$​​​ 可逆 $\Rightarrow \forall b\in R^n, Ax=b$​​​ 有唯一解 $x=A^{-1}b$​​​；$Ax=0$​​​ 只有**0**解
 
 > **定理** 可逆矩阵性质
 >
@@ -95,7 +117,9 @@ $A_{m\times n}$ 转置 $(A^T)_{n\times m}$ 的列是 A 的对应行构成
 
 1. 倍加行：$E=\begin{bmatrix}1&0&0\\0&1&0\\c&0&1\end{bmatrix},\ EA:r_3=cr_1+r_3,\ E^{-1}=\begin{bmatrix}1&0&0\\0&1&0\\-c&0&1\end{bmatrix}$
 2. 交换行：$E=\begin{bmatrix}0&1&0\\1&0&0\\0&0&1\end{bmatrix},\ EA:r_1\leftrightarrow r_2,\ E^{-1}=E$
-3. 倍乘行：$E=\begin{bmatrix}1&0&0\\0&1&0\\0&0&c\end{bmatrix},\ EA:r_3=cr_3,\ E^{-1}=\begin{bmatrix}1&0&0\\0&1&0\\0&0&1/c\end{bmatrix}$
+3. 倍乘行：$E=\begin{bmatrix}1&0&0\\0&1&0\\0&0&c\end{bmatrix},\ EA:r_3=cr_3,\ E^{-1}=\begin{bmatrix}1&0&0\\0&1&0\\0&0&1/c\end{bmatrix}$​
+
+![image-20211020153747174](../assets/image-20211020153747174.png)
 
 > **定理** $A_{n\times n}$ 可逆 $\Leftrightarrow$ A 行等价于 $I_n,\ [A\ I]\sim[I\ A^{-1}]$
 
