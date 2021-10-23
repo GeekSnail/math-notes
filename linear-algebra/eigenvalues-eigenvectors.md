@@ -20,16 +20,8 @@ $A\xrightarrow[行倍加]{行交换r次} U\Rightarrow|A|=\begin{cases}(-1)^r·|U
 
 > **定理** 可逆矩阵定理（续）
 >
-> $|A|\ne 0\Rightarrow$0 不是 A 的特征值
-
-> **定理** 行列式性质：$A_{n\times n},B_{n\times n}$
->
-> A 可逆  $\Leftrightarrow |A|\ne 0\\
-> |AB|=|A||B|\\
-> |A|=|A^T|\\
-> A$ 是三角阵 $|A|$ 是 A 主对角线元素乘积
-> 
-> 行交换的次数影响行列式值符号；数乘一行，行列式值也数乘
+> A不可逆 $|A|=0\Leftrightarrow\exist\ \lambda_i=0$​
+> A可逆 $|A|\ne 0\Leftrightarrow \forall\ \lambda_i\ne 0$​
 
 **特征方程**
 
@@ -38,6 +30,22 @@ $A\xrightarrow[行倍加]{行交换r次} U\Rightarrow|A|=\begin{cases}(-1)^r·|U
 特征多项式：$A_{n\times n}$ 关于 $\lambda$ 的 n 次特征多项式 $|A-\lambda I|$
 
 特征值 $\lambda$ 的重数：特征方程根中 $\lambda$ 的重数
+
+**特征值计算性质**
+
+> 韦达定理：n次方程 $b_nx^n+...+b_1x+b_0=\sum_{i=0}^nb_ix^i=0$​，$\sum_{i=1}^nx_i=-\frac{b_{n-1}}{b_n},\prod_{i=1}^nx_i=(-1)^n\frac{b_0}{b_n}$​​
+
+> $\{\lambda:|A-\lambda I|=0\}\Rightarrow$ 对角矩阵、三角矩阵的特征值 $\lambda_i=a_{ii}$
+> 
+> $\exists\ \lambda_i...n,|A-\lambda I|=\prod_{i=1}^n=(\lambda_i-\lambda)=0, 右式得: b_n=(-1)^n,b_{n-1}=\sum_{i=1}^n\lambda_i·(-1)^{n-1}$
+>
+> - 左式 $|A-\lambda I|$ (定义式)只有主对角线元 $(a_{ii}-\lambda) 含 \lambda$，对应乘积项 $\prod_{i=1}^n(a_{ii}-\lambda)含\lambda^{n-1}\\\Rightarrow tr(A)=\sum_{i=1}^na_{ii}=\sum_{i=1}^n\lambda_i$
+>
+> - $let\ \lambda=0\Rightarrow |A|=\prod_{i=1}^n\lambda_i=b_0$
+> 
+> $r(A)=1\Rightarrow \lambda=0,...,0,tr(A)$​
+> 
+> 矩阵多项式 $f(A)$​ 与 A 有相同特征向量，$f(A)v_i=f(\lambda_i)v_i$​
 
 **相似性** 
 
@@ -81,10 +89,10 @@ $R^n$ 的特征向量基：$A_{n\times n}$ 的 n 个线性无关的特征向量
 
 **特征值不全相异的矩阵**
 
-> **定理** $A_{n\times n}$ 相异的特征值：$\lambda_1,...,\lambda_p$，
+> **定理** $A_{n\times n}$ 相异的特征值：$\lambda_1,...,\lambda_p,1\le k\le p$，
 >
-> - $1\le k\le p,\ \lambda_k$ 的特征空间的维数 $\le\lambda_k$ 的代数重数
-> - $A_{n\times n}$ 可对角化 $\Leftrightarrow$ 所有不同特征空间的维数之和 $=n\\\Leftrightarrow A$ 的特征多项式 $|A-\lambda I|$ 可完全因式分解 $\\\Leftrightarrow$ 每个 $\lambda_k$ 的特征空间维数 $=\lambda_k$ 的代数重数
+> - $\lambda_k$ 的特征空间的维数 $=n-r(A-\lambda E)\le\lambda_k$ 的代数重数
+> - $A_{n\times n}$ 可对角化 $\Leftrightarrow$ 所有不同特征空间的维数之和 $=n\\\Leftrightarrow A$ 的特征多项式 $|A-\lambda I|$ 可完全因式分解 $\\\Leftrightarrow$ 每个 $\lambda_k$ 的特征空间维数 $=n-r(A-\lambda E)=\lambda_k$ 的代数重数
 > - $A_{n\times n}$ 可对角化，$B_k$ 是对应 $\lambda_k$ 的特征空间的基 $\Rightarrow B_1,...,B_p$ 基中所有向量的集合是 $R^n$ 的特征向量基
 
 ## 5.4 特征向量与线性变换

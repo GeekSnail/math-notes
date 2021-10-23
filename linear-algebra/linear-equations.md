@@ -63,8 +63,8 @@ a_{31} & a_{32} & a_{33} & b_3
 行变换可逆：
 
 - 对换的逆：$(r_i\leftrightarrow r_j)^{-1}:\ r_i\leftrightarrow r_j$
-- 倍乘的逆：$(r_i=k*r_i)^{-1}:\ r_i=\frac{1}{k}*r_i,\ k\ne 0$
-- 倍加的逆：$(r_i=r_i+k*r_j)^{-1}:\ r_i=r_i-k*r_j,\ k\ne 0$
+- 倍乘的逆：$(r_i=k·r_i)^{-1}:\ r_i=\frac{1}{k}·r_i,\ k\ne 0$​
+- 倍加的逆：$(r_i=r_i+k·r_j)^{-1}:\ r_i=r_i-k·r_j,\ k\ne 0$​
 
 > 两线性方程组增广矩阵等价 $\Rightarrow$ 有相同解集
 

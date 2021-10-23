@@ -259,8 +259,6 @@ int main(void) {
 }
 ```
 
-
-
 ### 线程概念和多线程模型
 
 #### 线程概念
@@ -290,7 +288,7 @@ void *runner(void *param); /* threads call this function */
 int main(int argc, char *argv[]) {
     pthread_t tid; 			/* the thread identifier */
     pthread_attr_t attr;	/* set of thread attributes */
-    pthread_attr init(&attr);/* set the default attributes of the thread */
+    pthread_attr_init(&attr);/* set the default attributes of the thread */
     pthread_create(&tid, &attr, runner, argv[1]);/* create the thread */
     pthread_join(tid, NULL);	/* wait for the thread to exit */
     printf("sum = %d∖n",sum);
@@ -351,26 +349,203 @@ struct task_struct *kthread_create(int (*threadfn)(void *data), void *data, cons
 
 ### 调度的目标
 
+公平，调度就绪队列中等待时间最长的
 
+优先级：实时进程 > 完全公平进程(红黑树按等待时间) > 空闲进程
 
 ### 调度的实现
 
+![image-20211022004531384](../assets/image-20211022004531384.png)
+
+进程中与调度相关的数据成员
+
+```c
+/* <sched.h> */
+struct task_struct {
+...
+    int prio, static_prio, normal_prio;	/* 动态优先级，静态优先级，普通优先级 */
+    unsigned int rt_priority;			/* 实时优先级 */
+    struct list_head run_list;
+    const struct sched_class *sched_class;
+    struct sched_entity se;
+    unsigned int policy;	/* 对该进程的调度策略 */
+    cpumask_t cpus_allowed; /* 位域，在多处理器系统上使用，限制进程可在哪些CPU上运行 */
+    unsigned int time_slice; /* 指定进程可使用CPU的剩余时间段 */
+...
+}
+/* kernel/sched.c */
+static inline int rt_policy(int policy) /* 判断给出的调度策略是否属于实时类 */
+static inline int task_has_rt_policy(struct task_struct *p)
+```
+
+**调度器类**
+
+```c
+/* <sched.h> */
+struct sched_class {
+    const struct sched_class *next;
+    /* 向就绪队列添加一个新进程, 在进程从睡眠状态变为可运行状态时触发 */
+    void (*enqueue_task) (struct rq *rq, struct task_struct *p, int wakeup);
+    /* 逆向操作，将一个进程从就绪队列去除, 在进程从可运行状态切换到不可运行状态时触发 */
+    void (*dequeue_task) (struct rq *rq, struct task_struct *p, int sleep);
+    /* 在进程想要自愿放弃对处理器的控制权时使用 */
+    void (*yield_task) (struct rq *rq);
+    /* 用一个新唤醒的进程来抢占当前进程, 例如在用wake_up_new_task唤醒新进程时会调用 */
+    void (*check_preempt_curr) (struct rq *rq, struct task_struct *p);
+    /* 选择下一个将要运行的进程 */
+    struct task_struct * (*pick_next_task) (struct rq *rq);
+    /* 用另一个进程代替当前运行的进程之前调用 */
+    void (*put_prev_task) (struct rq *rq, struct task_struct *p);
+    /* 在进程的调度策略发生变化时，需要调用 */
+    void (*set_curr_task) (struct rq *rq);
+    /* 在每次激活周期性调度器时，由周期性调度器调用 */
+    void (*task_tick) (struct rq *rq, struct task_struct *p);
+    /* 用于建立fork系统调用和调度器之间的关联。每次新进程建立后，用new_task通知调度器 */
+    void (*task_new) (struct rq *rq, struct task_struct *p);
+};
+```
+
+标准函数 `activate_task` 和 `deactivate_task` 调用前述的函数，提供进程在就绪队列的入队和离队功能。
+
+```c
+/* kernel/sched.c */
+static void enqueue_task(struct rq *rq, struct task_struct *p, int wakeup)
+static void dequeue_task(struct rq *rq, struct task_struct *p, int sleep)
+```
+
+**就绪队列**
+
+```c
+/* kernel/sched.c */
+struct rq {
+    unsigned long nr_running;
+    #define CPU_LOAD_IDX_MAX 5
+    unsigned long cpu_load[CPU_LOAD_IDX_MAX]; /* 就绪队列当前负荷的度量 */
+...
+    struct load_weight load;
+    /* 子就绪队列，分别用于完全公平调度器和实时调度器 */
+    struct cfs_rq cfs; 
+    struct rt_rq rt;
+    /* curr指向当前运行的进程的task_struct实例,idle指向idle进程的task_struct实例 */
+    struct task_struct *curr, *idle;
+    u64 clock; /* 用于实现就绪队列自身的时钟 */
+...
+};
+```
+
+**调度实体**
+
+```c
+/* <sched.h> */
+struct sched_entity {
+    struct load_weight load; /* 用于负载均衡 */
+    struct rb_node run_node;
+    unsigned int on_rq; /* 表示该实体当前是否在就绪队列上接受调度 */
+    u64 exec_start;
+    u64 sum_exec_runtime;
+    u64 vruntime; /* 在进程执行期间虚拟时钟上流逝的时间数 */
+    u64 prev_sum_exec_runtime; /* 在进程被撤销CPU时，其当前sum_exec_runtime值保存到prev_exec_runtime。此后在进程抢占时又需要该数据 */
+...
+}
+```
+
+每个task_struct都嵌入了sched_entity的一个实例，所以进程是可调度实体
+
 #### 调度程序 scheduler
 
-
+```c
+kernel/sched.c
+asmlinkage void __sched schedule(void) {
+/* 首先确定当前就绪队列，并在prev中保存一个指向（仍然）活动进程的task_struct的指针 */
+    struct task_struct *prev, *next;
+    struct rq *rq;
+    int cpu;
+need_resched:
+    cpu = smp_processor_id();
+    rq = cpu_rq(cpu);
+    prev = rq->curr;
+...
+/* 类似于周期性调度器，内核也利用该时机来更新就绪队列的时钟，并清除当前运行进程task_struct中的重调度标志TIF_NEED_RESCHED。*/
+    __update_rq_clock(rq);
+    clear_tsk_need_resched(prev);
+...
+/* 同样因为调度器的模块化结构，大多数工作可以委托给调度类。如果当前进程原来处于可中断睡眠状态但现在接收到信号，那么它必须再次提升为运行进程。否则，用相应调度器类的方法使进程停止活动(deactivate_task实质上最终调用了sched_class->dequeue_task) */
+	if (unlikely((prev->state & TASK_INTERRUPTIBLE) && 				           			unlikely(signal_pending(prev)))) {
+	    prev->state = TASK_RUNNING;
+    } else {
+    	deactivate_task(rq, prev, 1);
+    }
+...
+/* put_prev_task首先通知调度器类当前运行的进程将要被另一个进程代替。注意，这不等价于把进程从就绪队列移除，而是提供了一个时机，供执行一些簿记工作并更新统计量。调度类还必须选择下一个应该执行的进程，该工作由pick_next_task负责 */
+    prev->sched_class->put_prev_task(rq, prev);
+    next = pick_next_task(rq, prev);
+...
+/* 不见得必然选择一个新进程。也可能其他进程都在睡眠，当前只有一个进程能够运行，这样它自然就被留在CPU上。但如果已经选择了一个新进程，那么必须准备并执行硬件级的进程切换。*/
+    if (likely(prev != next)) {
+        rq->curr = next;
+        context_switch(rq, prev, next);
+    }
+...
+/* context_switch一个接口，供访问特定于体系结构的方法，后者负责执行底层上下文切换。下列代码检测当前进程的重调度位是否设置，并跳转到如上所述的标号，重新开始搜索一个新进程 */
+    if (unlikely(test_thread_flag(TIF_NEED_RESCHED)))
+    	goto need_resched;
+}
+```
 
 #### 调度的时机与上下文切换
 
 - 在 `fork()` 新进程后，需决定运行父进程还是子进程
 - 在进程退出时
 - 在进程阻塞时
-- I/O完成发起中断，被阻塞进程被唤醒为就绪态时
+- I/O完成发起中断，被阻塞进程被唤醒为就绪态时   
 
 不能进行进程调度与切换的情况：
 
 - 系统处理中断时
 - 进程执行临界区代码时
 - 屏蔽中断的原子操作，如：加锁，解锁，中断现场保护与恢复
+
+**上下文切换**
+
+`switch_mm` 更换通过 `task_struct->mm` 描述的内存管理上下文。主要包括加载页表、刷出地址转换后备缓冲器、向内存管理单元（MMU）提供新的信息。
+
+`switch_to` 切换处理器寄存器内容和内核栈（虚拟地址空间的用户部分在第一步已经变更，其中也包括了用户状态下的栈，因此用户栈就不需要显式变更了）
+
+```c
+kernel/sched.c
+static inline void context_switch(struct rq *rq, struct task_struct *prev, struct task_struct *next) {
+    struct mm_struct *mm, *oldmm;
+    /* 调用每个体系结构都必须定义的prepare_arch_switch挂钩 */
+    prepare_task_switch(rq, prev, next);
+    mm = next->mm;
+    oldmm = prev->active_mm;
+...
+	/* 内核线程没有自身的用户空间内存上下文，可能在某个随机进程地址空间的上部执行。其task_struct->mm为NULL。从当前进程“借来”的地址空间记录在active_mm中 */
+    if (unlikely(!mm)) {
+        next->active_mm = oldmm;
+        atomic_inc(&oldmm->mm_count);
+        /* 通知底层体系结构不需要切换虚拟地址空间的用户空间部分。这种加速上下文切换的技术称之为惰性TLB */
+        enter_lazy_tlb(oldmm, next);
+    } else
+	    switch_mm(oldmm, mm, next);
+...
+	/* 如果前一进程是内核线程（即prev->mm为NULL），则其active_mm指针必须重置为NULL，以断开与借用的地址空间的联系：*/
+    if (unlikely(!prev->mm)) {
+        prev->active_mm = NULL;
+        rq->prev_mm = oldmm;
+    }
+...
+	/* 最后用switch_to完成进程切换，该函数切换寄存器状态和栈，新进程在该调用之后开始执行 */
+    /* 这里我们只是切换寄存器状态和栈。 */
+    switch_to(prev, next, prev); //prev = switch_to(prev,next)
+	/* barrier一个编译器指令，确保switch_to和finish_task_switch语句的执行顺序不会因为任何可能的优化而改变 */
+    barrier(); 
+	/* this_rq必须重新计算，因为在调用schedule()之后prev可能已经移动到其他CPU，因此其栈帧上的rq可能是无效的。*/
+	finish_task_switch(this_rq(), prev); /* 完成一些清理工作，使得能够正确地释放锁*/
+}    
+```
+
+![image-20211022022015658](../assets/image-20211022022015658.png)
 
 #### 调度方式(抢占/非抢占)
 
@@ -383,7 +558,55 @@ struct task_struct *kthread_create(int (*threadfn)(void *data), void *data, cons
 
 #### 内核级/用户级线程调度
 
+轻量级线程LWP：在用户与内核线程之间增加的一个数据结构，表现为虚拟处理器；每个LWP与一个内核线程相连。
 
+![image-20211022003826736](../assets/image-20211022003826736.png)
+
+![image-20211022003713327](../assets/image-20211022003713327.png)
+
+CPU调度的是内核级线程。用户级线程由线程库管理，需要通过映射到相关内核级线程才能运行在CPU上
+
+- PTHREAD_SCOPE_PROCESS：按进程竞争范围来调度，将用户级线程映射到可用的轻量级进程LWP
+- PTHREAD_SCOPE_SYSTEM：按系统竞争范围来调度，创建一个轻量级进程LWP，将多对多系统的每个用户级线程绑定到轻量级进程LWP（实际一对一映射）
+
+pthread scheduling API
+
+```c
+#include <pthread.h>
+#include <stdio.h>
+#define NUM_THREADS 5
+int main(int argc, char *argv[]) {
+	int i, scope;
+    pthread_t tid[NUM THREADS];
+    pthread_attr_t attr;
+    /* get the default attributes */
+    pthread_attr_init(&attr);
+    /* first inquire on the current scope */
+    if (pthread_attr_getscope(&attr, &scope) != 0)
+	    fprintf(stderr, "Unable to get scheduling scope∖n");
+    else {
+        if (scope == PTHREAD_SCOPE_PROCESS)
+        	printf("PTHREAD SCOPE PROCESS");
+        else if (scope == )
+        	printf("PTHREAD SCOPE SYSTEM");
+        else
+        	fprintf(stderr, "Illegal scope value.∖n");
+    }
+    /* set the scheduling algorithm to PCS or SCS */
+    pthread_attr_setscope(&attr, PTHREAD_SCOPE_SYSTEM);
+    /* create the threads */
+    for (i = 0; i < NUM THREADS; i++)
+	    pthread_create(&tid[i],&attr,runner,NULL);
+    /* now join on each thread */
+    for (i = 0; i < NUM_THREADS; i++)
+    	pthread_join(tid[i], NULL);
+}
+/* Each thread will begin control in this function */
+void *runner(void *param) {
+    /* do some work ... */
+    pthread exit(0);
+}
+```
 
 ### 调度算法的评价准则
 
@@ -430,22 +653,6 @@ $p=1/T_{run}$​
 最短作业优先的抢占式版本：最短剩余时间优先
 
 #### 优先级调度
-
-```c
-/* <sched.h> */
-struct task_struct {
-...
-    int prio, static_prio, normal_prio;	/* 动态优先级，静态优先级，普通优先级 */
-    unsigned int rt_priority;			/* 实时优先级 */
-    struct list_head run_list;
-    const struct sched_class *sched_class;
-    struct sched_entity se;
-    unsigned int policy;	/* 应用的调度策略 */
-    cpumask_t cpus_allowed;
-    unsigned int time_slice;
-...
-}
-```
 
 进程优先级设置依据：
 
@@ -1115,11 +1322,11 @@ Process Q:
 
 #### 系统安全/不安全状态
 
-进程推进序列：$sort=(...,P_i,P_j,...),P_i\rightarrow P_j.\ i,j\in range(n)$​​​​​​​​​
+进程推进序列：$seq=(...,P_i,P_j,...),P_i\rightarrow P_j.\ i,j\in range(n)$​​​​​​​​​​
 
-安全状态：存在 $sort$，系统能按照进程推进顺序 $sort$ 对进程预分配所需资源及回收，使每个进程都能满足对资源的需求直至完成，称 $sort$ 为安全序列
+安全状态：存在 $seq$，系统能按照进程推进顺序 $seq$ 对进程预分配所需资源及回收，使每个进程都能满足对资源的需求直至完成，称 $seq$ 为安全序列
 
-例：如图，存在 $(P_2,P_1,P_3)$​​​ 安全序列​。资源先给需求最小的 $P_2$​，回收后6；再给需求最小的 $P_1$，回收后8
+例：如图，存在 $(P_2,P_1,P_3)$​​​​ 安全序列​。资源先给需求最小的 $P_2$​​，回收后6；再给需求最小的 $P_1$​，回收后9
 
 ![image-20210807035116568](../assets/image-20210807035116568.png)
 
@@ -1133,13 +1340,13 @@ Process Q:
 
 ```c
 bool isSafeStatus(state s):
-    sort = (), remains = s.available;
+    seq = (), remains = s.available;
     loop:
-        find P[i]: P[i] ∉ sort, s.need[i] ≤ remains;
+        find P[i]: P[i] ∉ seq, s.need[i] ≤ remains;
         if found:  
-			sort.add(P[i]), remains += s.allocation[i];
+			seq.add(P[i]), remains += s.allocation[i];
 		else break;
-    return sort.length == P.length; //true-safe
+    return seq.length == P.length; //true-safe
 ```
 
 ### 银行家算法
@@ -1211,16 +1418,16 @@ bool allocate(state s, request, i):
 
    ```c
    bool isDeadLock(state s, request):
-       sort = (), remains = s.available;
+       seq = (), remains = s.available;
    	for i in (1...n):
-   		if allocation[i] == 0: 
-   			sort.add(P[i]);
+   		if s.allocation[i] == (0): 
+   			seq.add(P[i]);
        loop:
-           find P[i]: P[i] ∉ sort, request[i] ≤ remains;
+           find P[i]: P[i] ∉ seq, request[i] ≤ remains;
            if found:  //假定可完成，预回收；若假定不正确，下次request可以检测到死锁
-   			sort.add(P[i]), remains += s.allocation[i]; 
+   			seq.add(P[i]), remains += s.allocation[i]; 
    		else break;
-       return sort.length < P.length; //deadlock
+       return seq.length < P.length; //deadlock
    ```
 
 ### 死锁解除

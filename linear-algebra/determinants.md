@@ -16,10 +16,10 @@ $A_{3\times 3}$​​​ 的行列式
 
 ![image-20210930171331677](../assets/image-20210930171331677.png)
 
-$det\ A=a_{11}a_{22}a_{33}+a_{12}a_{23}a_{31}+a_{13}a_{21}a_{32}-a_{11}a_{23}a_{32}-a_{12}a_{21}a_{33}-a_{13}a_{22}a_{31}\\
+$|A|=a_{11}a_{22}a_{33}+a_{12}a_{23}a_{31}+a_{13}a_{21}a_{32}-a_{11}a_{23}a_{32}-a_{12}a_{21}a_{33}-a_{13}a_{22}a_{31}\\
 =(a_{11}a_{22}a_{33}-a_{11}a_{23}a_{32})-(a_{12}a_{21}a_{33}-a_{12}a_{23}a_{31})+(a_{13}a_{21}a_{32}-a_{13}a_{22}a_{31})\\
-=a_{11}det\ A_{11}+a_{12}det\ A_{12}+a_{13}det\ A_{13}$
-（$A_{ij}$ 由 A 中删去 i 行 j 列得到）
+=a_{11}det\ A_{11}+a_{12}det\ A_{12}+a_{13}det\ A_{13}$​
+（$A_{ij}$​ 由 A 中删去 i 行 j 列得到）
 
 > **定义** $n\ge 2, A_{n\times n}=[a_{ij}]$ 的行列式是形如 $\pm a_{ij} det\ A_{ij}$ 的 n 项和，$\pm$ 符号交替出现
 >
@@ -29,11 +29,11 @@ $det\ A=a_{11}a_{22}a_{33}+a_{12}a_{23}a_{31}+a_{13}a_{21}a_{32}-a_{11}a_{23}a_{
 
 > **定理** $A_{n\times n}$ 的行列式可按任意行或列的余因子（代数余子）展开式来计算
 >
-> 按第 i 行展开：$det\ A=a_{i1}C_{i1}+a_{i2}C_{i2}+...+a_{in}C_{in}$
+> 按第 i 行展开：$|A|=a_{i1}C_{i1}+a_{i2}C_{i2}+...+a_{in}C_{in}$​
 >
-> 按第 j 列展开：$det\ A=a_{1j}C_{1j}+a_{2j}C_{2j}+...+a_{nj}C_{nj}$
+> 按第 j 列展开：|A|=a_{1j}C_{1j}+a_{2j}C_{2j}+...+a_{nj}C_{nj}$
 
-> **定理** A 为三角阵 $\Rightarrow$ $det\ A=\Pi_{i}^n a_{ii}$（主对角线元素乘积）
+> **定理** A 为三角阵 $\Rightarrow |A|=\Pi_{i}^n a_{ii}$​​（主对角线元素乘积）
 
 ## 3.2 行列式性质
 
@@ -69,7 +69,7 @@ $A\xrightarrow[行倍加]{行交换r次} U\Rightarrow|A|=\begin{cases}(-1)^r·|U
 
 行列式的列变换与行变换有相同效果，转置不影响行列式值
 
->  **定理** $A_{n\times n}\Rightarrow det\ A^T=det\ A,\ |A^T|=|A|$​
+>  **定理** $A_{n\times n}\Rightarrow |A^T|=|A|$​​
 
 证（归纳法）：$\\
 n=1$，定理成立$\\
@@ -79,7 +79,7 @@ $\\\Rightarrow det\ A=a_{i1}C_{i1}+a_{i2}C_{i2}+...+a_{in}C_{in}=a_{1i}C_{1i}+a_
 
 ### 行列式与矩阵乘积
 
-> **定理** 乘法性质：$A_{n\times n},B_{n\times n}\Rightarrow det\ AB=(det\ A)(det\ B)\\|AB|=|A|·|B|$​
+> **定理** 乘法性质：$A_{n\times n},B_{n\times n}\Rightarrow |AB|=|A|·|B|$​​
 
 ### 行列式函数的线性性质
 
@@ -89,14 +89,20 @@ $A=[a_1\ ...a_{j-1}\ x\ a_{j+1}\ ...\ a_n]$
 
 > 定义：变换 $T:\R^n\mapsto \R,\ T(x)=det[a_1\ ...a_{j-1}\ x\ a_{j+1}\ ...\ a_n]$
 >
-> $T(cx)=cT(x),\ T(u+v)=T(u)+T(v),\ x,u,v\in \R^n$
+> $T(cx)=cT(x),\ T(u+v)=T(u)+T(v),\ x,u,v\in \R^n$​
 
-### 行列变换计算行列式
+$|kA|=k^n|A|$​
+
+### 计算行列式
 
 - 某一行/列依次倍加其它行/列，其它行/列依次倍加某一行/列
 - 上(下)行依次倍加下(上)行，左(右)列依次倍加右(左)列
 - 内(外)行/列依次倍加外(内)行/列
-- $\begin{vmatrix}a_1+a_2&b_1+b_2&c_1+c_2&d_1+d_2\end{vmatrix}$​​ 拆成 $2^4$​​ 个行列式和，每列取一项不与其它列相同
+- 其它行/列依次提取公因子（倍乘行/列），如爪型行列式
+- $\begin{vmatrix}a_1+a_2&b_1+b_2&c_1+c_2&d_1+d_2\end{vmatrix}$​​ 拆成 $2^4$​​​ 个行列式和，每列取一项不与其它列相同
+- 行列式定义，不同行不同列各取一项，共 $n!$​ 项；从上到下，以项的列号逆序数确定符号
+- 按任意行/列的余因子（代数余子）展开式计算
+- 归纳法、数列递推式，如三对角线行列式：$D_n+kD_{n-1}=q(D_{n-1}+kD_{n-2})=D_2q^{n-2}$​​​​​
 
 ![image-20210930185555285](../assets/image-20210930185555285.png)
 
@@ -132,21 +138,28 @@ a+x&a&a&a\\
 0&0&-x&x
 \end{vmatrix}\xlongequal[]{c_1=c_1+c_{2,3,4}}(4a+x)x^3$​
 
+$\begin{vmatrix}
+x&a&\dots&a\\
+a&x&\dots&a\\
+\vdots&\vdots&\ddots&\vdots\\
+a&a&\dots&x
+\end{vmatrix}=(x+(n-1)a)(x-a)^{n-1}$
+
 
 ## 3.3 克拉默法则、体积和线性变换
 
-$A_{n\times n}, b\in R^n$，$A_i(b)$ 表示 A 中第 i 列由向量 b 替换得到的矩阵：
+$A_{n\times n}, b\in R^n$​​，$A_i(b)$​​ 表示 A 中第 i 列由向量 b 替换得到的矩阵：
 
 $A_i(b)=[a_1...b...a_n]$
 
->**定理** 克拉默法则：$A_{n\times n}$ 可逆，$\forall b\in R^n$， 方程 $Ax=b$ 的唯一解：$x_i=\frac{det\ A_i(b)}{det\ A}=\frac{|A_i(b)|}{|A|}$
+>**定理** 克拉默法则：$A_{n\times n}$​ 可逆，$\forall b\in R^n$​， 方程 $Ax=b$​ 的唯一解：$x_i=\frac{|A_i(b)|}{|A|}$​
 
 证：$A·I_i(x)=A[e_1...x...e_n]=[Ae_1...Ax...Ae_n]=[a_1...b...a_n]=A_i(b)\\
 \Rightarrow|A||I_i(x)|=|A|x_i=|A_i(b)|$
 
 **求$A^{-1}$的公式**
 
-$A^{-1}$  的 j 列向量 x，$Ax=e_j$，$A^{-1}(i,j):\ a_{ij}^{-1}=x_i=\frac{det\ A_i(e_j)}{det\ A}=\frac{|A_i(e_j)|}{|A|}\xlongequal[展开]{按i列}\frac{|(-1)^{i+j}A_{ji}|}{|A|}=C_{ji}$
+$A^{-1}$​​  的 j 列向量 x，$Ax=e_j$​​，$A^{-1}(i,j):\ a_{ij}^{-1}=x_i=\frac{|A_i(e_j)|}{|A|}\xlongequal[展开]{按i列}\frac{|(-1)^{i+j}A_{ji}|}{|A|}=\frac{|C_{ji}|}{|A|}$​​
 
 ![image-20210630021249706](../assets/image-20210630021249706.png)
 

@@ -350,6 +350,8 @@ mov <mem>, <imm>
 
 ##### push/pop
 
+在程序的过程调用中，栈底为高地址，栈顶为低地址；push 减小栈指针，pop 增加栈指针
+
 ```assembly
 push <reg32>
 push <mem>
@@ -550,8 +552,8 @@ const char *dlerror(void); //dlclose 函数卸载已加载(不再使用)的共�
 #include <stdlib.h>
 #include <dlfcn.h>
 
-int x[2] = {1, 2>;
-int y[2] = {3, 4>;
+int x[2] = {1, 2};
+int y[2] = {3, 4};
 int z[2];
 
 int main() {
@@ -752,13 +754,15 @@ test:
 
 ### 过程(函数)调用对应的汇编代码
 
+![image-20211011231109766](../assets/image-20211011231109766.png)
+
 #### 运行时栈
 
 
 
 #### 转移控制
 
-
+`call` 指令将其后的下条指令地址 `PC+<当前指令长度>` 作为返回地址压入栈，被调用函数执行 `ret` 指令从栈中弹出该地址（给PC设置）
 
 #### 数据传送
 

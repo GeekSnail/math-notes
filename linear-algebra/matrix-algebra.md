@@ -1,4 +1,4 @@
-## 2.1 矩阵运算
+## 矩阵运算
 
 $A_{m\times n}=[a_1\ a_2\ ...\ a_n]$
 
@@ -12,7 +12,11 @@ $A_{m\times n}+B_{m\times n}=[a_1+b_1\ ...\ a_n+b_n]$
 
 数乘：标量r与矩阵A的数乘矩阵，它的各列是A的对应列的r倍
 
-$rA_{m\times n}=[ra_1\ ra_2\ ...\ ra_n]$
+$rA_{m\times n}=[ra_1\ ra_2\ ...\ ra_n]$​
+
+**矩阵行列式**
+
+$|kA|=k^n|A|$
 
 ### 矩阵乘法
 
@@ -38,8 +42,11 @@ $rA_{m\times n}=[ra_1\ ra_2\ ...\ ra_n]$
 
 ![image-20211020160913716](../assets/image-20211020160913716.png)
 
-**矩阵乘法性质**
+矩阵多项式 $f(A)=a_0E+\sum_{i=1}^na_iA^i$​
 
+$A_{n\times n}$ 的两个多项式乘法可交换 $f(A)g(A)=g(A)f(A)$
+
+**矩阵乘法性质**
 
 > **定理** 矩阵 $A_{m\times n}$
 >
@@ -51,19 +58,23 @@ $rA_{m\times n}=[ra_1\ ra_2\ ...\ ra_n]$
 >
 > $r(AB)=(rA)B+A(rB)$  
 >
-> $I_mA=A=AI_m$
+> $I_mA=A=AI_m$​
+
+**矩阵乘幂**
+
+$A^0=I,A^kA^h=A^{k+h},(A^k)^h=A^{kh}$
 
 > **注意** （一般情况下）
 >
 > $AB\ne BA$ 交换律不成立（AB的列是A的各列的线性组合，BA的列是B的各列的线性组合）
 >
+> $(AB)^2=A^2B^2\nRightarrow AB=BA.\ (A=\begin{bmatrix}0&1\\0&0\end{bmatrix},B=\begin{bmatrix}1&0\\0&0\end{bmatrix},A^2=AB=0,BA\ne 0)$
+>
 > $AB=AC\nRightarrow B=C$ 消去律不成立（矩阵方程可能由非零解）
 >
 > $AB=0\nRightarrow A=0\ or\ B=0$​​​（齐次矩阵方程可能由非零解）
 
-**矩阵乘幂**
-
-$A^0=I$
+$A_{n\times n},B_{n\times n},A=kE(k\ne 0)\Rightarrow AB=BA$
 
 ### 矩阵转置
 
@@ -93,7 +104,21 @@ $(Ax)^Ty = x^T (A^T y)$ Inner product of $Ax$ with $y$ = Inner product of $x$ wi
 
 ![image-20211020173958929](../assets/image-20211020173958929.png)
 
-## 2.2 矩阵的逆
+## 矩阵的逆
+
+### 伴随矩阵
+
+$A^*$：将 $A^T$ 各元素替换为其代数余子（余因子）$C_{ij}=(-1)^{i+j}A_{ij}=a^{-1}_{ji}|A|$
+
+![image-20210630021249706](../assets/image-20210630021249706.png)
+
+$A^*A=AA^*=|A|E$
+
+$A^*=|A|A^{-1},A^{-1}=\frac{A^*}{|A|}\\
+|A^*|=||A|A^{-1}|=|A|^n|A^{-1}|=|A|^{n-1}=\frac{||A|E|}{|A|}\\
+(kA)^*=\begin{bmatrix}k^{n-1}C_{11}&\dots&k^{n-1}C_{n1}\\\vdots&\ddots&\vdots\\k^{n-1}C_{1n}&\dots&k^{n-1}C_{nn}\end{bmatrix}=k^{n-1}A^*=|kA|(kA)^{-1}\\
+(A^{-1})^*=\frac{A}{|A|}=(A^*)^{-1},\ (A^T)^*=(A^*)^T,\ (AB)^*=B^*A^*\\
+n>2,\ (A^*)^*=(|A|A^{-1})^*=|A|^{n-1}(A^{-1})^*=|A|^{n-2}A$​​​​​​​​
 
 ### 可逆
 
@@ -101,15 +126,18 @@ $(Ax)^Ty = x^T (A^T y)$ Inner product of $Ax$ with $y$ = Inner product of $x$ wi
 
 > **定理** $A=\begin{bmatrix}a&b\\c&d\end{bmatrix},\ ad-bc\ne0\Rightarrow A^{-1}=\frac{1}{ad-bc}\begin{bmatrix}d&-b\\-c&a\end{bmatrix}$
 >
-> $A_{2\times 2}$​ 可逆 $\Leftrightarrow$​ $|A|\ne0$​
+> $A_{n\times n}$​​​ 可逆 $\Leftrightarrow$​​​ $|A|\ne0$​​​
 
 > **定理**  $A_{n\times n}$​​​ 可逆 $\Rightarrow \forall b\in R^n, Ax=b$​​​ 有唯一解 $x=A^{-1}b$​​​；$Ax=0$​​​ 只有**0**解
 
 > **定理** 可逆矩阵性质
 >
-> $A$ 可逆 $\Leftrightarrow A^{-1}$ 可逆 $(A^{-1})^{-1}=A\ \Leftrightarrow A^T$ 可逆 $(A^T)^{-1}=(A^{-1})^T$
+> $A$ 可逆 $\Leftrightarrow A^{-1}$ 可逆 $(A^{-1})^{-1}=A\ \Leftrightarrow A^T$ 可逆 $(A^T)^{-1}=(A^{-1})^T\Leftrightarrow A^*$ 可逆 $(A^*)^{-1}=\frac{A}{|A|}=(A^{-1})^*$
 >
-> $A_{n\times n},B_{n\times n}$ 可逆 $\Rightarrow AB$ 可逆，$(AB)^{-1}=B^{-1}A^{-1}$ 可逆矩阵的乘积也可逆
+> $A_{n\times n},B_{n\times n}$​ 可逆 $\Rightarrow AB$​ 可逆，$(AB)^{-1}=B^{-1}A^{-1}$​ 可逆矩阵的乘积也可逆
+>
+> $(kA)^{-1}=\frac{A^{-1}}{k}(k\ne 0)\\
+> |A^{-1}|=|A|^{-1}$
 
 ### 初等矩阵
 
@@ -128,21 +156,21 @@ $(Ax)^Ty = x^T (A^T y)$ Inner product of $Ax$ with $y$ = Inner product of $x$ wi
 必要性：$A\sim I$，每步行化简变换=左乘一个初等矩阵
 $\exist E_1,...,E_p,\ A\sim E_1A\sim E_2(E_1A)\sim ... \sim E_p(E_{p-1}...E_1A)=I\Rightarrow E_pE_{p-1}...E_1A=I,\ A^{-1}=E_pE_{p-1}...E_1·I$
 
-## 2.3 可逆矩阵特征
+### 可逆矩阵特征
 
 > **定理** 可逆矩阵定理
 >
-> 矩阵 $A_{n\times n}$ 可逆$\\
+> 矩阵 $A_{n\times n}$​ 可逆$\\
 > \Leftrightarrow \exist C_{n\times n}, CA=AC=I\\
 > \Leftrightarrow A\sim I_n\\
-> \Leftrightarrow A$ 有 n 个主元位置$\\
-> \Leftrightarrow Ax=0$ 仅有零解 $\\
-> \Leftrightarrow \forall b\in R^n, Ax=b$ 至少有一个解$\\
-> \Leftrightarrow A$ 的各列线性无关$\\
-> \Leftrightarrow A$ 的各列生成 $R^n\\
-> \Leftrightarrow A^T$ 可逆
+> \Leftrightarrow A$​ 有 n 个主元位置$\\
+> \Leftrightarrow Ax=0$​ 仅有零解 $\\
+> \Leftrightarrow \forall b\in R^n, Ax=b$​ 至少有一个解$\\
+> \Leftrightarrow A$​ 的各列线性无关$\\
+> \Leftrightarrow A$​ 的各列生成 $R^n\\
+> \Leftrightarrow A^T,A^*$​ 可逆
 
-## 2.4 分块矩阵
+## 分块矩阵
 
 ### 加法与数乘
 
@@ -164,7 +192,16 @@ A 的列数分法与 B 的行数一致，按照行列展开
 
 ### 分块矩阵的逆
 
-分块上三角矩阵：$A=\begin{bmatrix}A_{11}&A_{12}\\0&A_{22}\end{bmatrix}, A_{11}:p\times p, A_{22}:q\times q$
+对角线分块矩阵，初等变换法计算
+
+$\begin{bmatrix}A_{11}&0\\0&A_{22}\end{bmatrix}^{-1}
+=\begin{bmatrix}A_{21}^{-1}&0\\0&A_{22}^{-1}\end{bmatrix},
+\begin{bmatrix}0&A_{12}\\A_{21}&0\end{bmatrix}^{-1}
+=\begin{bmatrix}0&A_{21}^{-1}\\A_{12}^{-1}&0\end{bmatrix}$
+
+三角分块矩阵，待定系数法计算
+
+$A=\begin{bmatrix}A_{11}&A_{12}\\0&A_{22}\end{bmatrix}, A_{11}:p\times p, A_{22}:q\times q$
 
 $\begin{bmatrix}A_{11}&A_{12}\\0&A_{22}\end{bmatrix}
 \begin{bmatrix}B_{11}&B_{12}\\B_{21}&B_{22}\end{bmatrix}
@@ -177,58 +214,12 @@ $\Rightarrow A_{11}B_{11}=I_p$，又 $A_{11}$ 方阵 $\Rightarrow B_{11}=A_{11}^
 
 $A_{11}B_{12}=-A_{12}B_{22}=-A_{12}A_{22}^{-1}\Rightarrow B_{12}=-A_{11}^{-1}A_{12}A_{22}^{-1}$
 
-$A^{-1}=\begin{bmatrix}A_{11}&A_{12}\\0&A_{22}\end{bmatrix}^{-1}
-=\begin{bmatrix}A_{11}^{-1}&-A_{11}^{-1}A_{12}A_{22}^{-1}\\0&A_{22}^{-1}\end{bmatrix}$
+$\begin{bmatrix}A_{11}&A_{12}\\0&A_{22}\end{bmatrix}^{-1}
+=\begin{bmatrix}A_{11}^{-1}&-A_{11}^{-1}A_{12}A_{22}^{-1}\\0&A_{22}^{-1}\end{bmatrix},
+\begin{bmatrix}A_{11}&A_{12}\\A_{21}&0\end{bmatrix}^{-1}
+=\begin{bmatrix}0&A_{21}^{-1}\\A_{12}^{-1}&-A_{12}^{-1}A_{11}^{-1}A_{21}^{-1}\end{bmatrix}$
 
-## 2.6 矩阵因式分解
-
-### LU分解
-
-$A_{m\times n}=LU,\ L_{m\times m}$ 单位下三角初等矩阵，$U_{m\times n}$ 阶梯型矩阵
-
-$Ax=b\Rightarrow L(Ux)=b\Rightarrow Ly=b,Ux=y$
-
-![image-20210628210441296](../assets/image-20210628210441296.png)
-
-**LU分解算法**
-
-行倍加变换 $A\sim U\Leftrightarrow E_p...E_1A=U,\ E_i$​ 为单位下三角初等矩阵（倍加行）
-
-$\Rightarrow A=(E_p...E_1)^{-1}U,\ L=(E_p...E_1)^{-1}$
-
-例：
-
-![image-20210628212502340](../assets/image-20210628212502340.png)
-
-解：
-
-![image-20210628212540016](../assets/image-20210628212540016.png)
-
-![image-20210628212557198](../assets/image-20210628212557198.png)
-
-![image-20210628212634553](../assets/image-20210628212634553.png)
-
-## 2.7 计算机图形学中的应用
-
-问题：平移不直接对应于矩阵乘法，并非线性变换——引入：齐次坐标
-
-**齐次坐标**：$(x,y)\in R^2\rightarrow (x,y,1)\in R^3$， 点的齐次坐标只能通过乘 $A_{3\times 3}$ 矩阵来变换
-
-沿向量 $(t_x,t_y)$ 平移：$(x,y)\rightarrow (x+t_x,y+t_y)$ 齐次坐标表示 $(x,y,1)\rightarrow (x+t_x,y+t_y,1)$
-
-$\begin{bmatrix}1&0&t_x\\0&1&t_y\\0&0&1\end{bmatrix}\begin{bmatrix}x\\y\\1\end{bmatrix}=\begin{bmatrix}x+t_x\\y+t_y\\1\end{bmatrix}$
-
-**齐次三维坐标**：$(x,y,z)\in R^3\rightarrow (xh,yh,zh,h)\in R^4$， 点的齐次坐标只能通过乘 $A_{4\times 4}$ 矩阵来变换
-
-沿向量 $(t_x,t_y,t_z)$ 平移：$(x,y,z)\rightarrow (x+t_x,y+t_y,z+t_z)$ 齐次坐标表示 $(x,y,z,1)\rightarrow (x+t_x,y+t_y,z+t_z,1)$
-
-$\begin{bmatrix}1&0&0&t_x\\0&1&0&t_y\\0&0&1&t_z\\0&0&0&1\end{bmatrix}\begin{bmatrix}x\\y\\z\\1\end{bmatrix}=\begin{bmatrix}x+t_x\\y+t_y\\z+t_z\\1\end{bmatrix}$
-
-**透视投影**
-
-
-
-## 2.8 $R^n$ 的子空间
+## $R^n$​ 的子空间
 
 > **定义** $R^n$ 的一个子空间是 $R^n$ 中的集合 H，它对加法和标量乘法-(线性)运算封闭：
 >
@@ -272,7 +263,7 @@ $R^n$ 的标准基：$\{e_1,...,e_n\}$
 
 > **定理**：矩阵 $A_{m\times n}$ 的主元列线性无关，构成 $Col\ A$ 的一组基
 
-## 2.9 维数与秩
+## 维数与秩
 
 ### 坐标系
 
@@ -290,21 +281,85 @@ $R^n$ 空间维数 n，$R^3$ 中经过 **0** 的平面是二维，一条经过 *
 
 $Nul\ A$ 的维数：$Ax=0$ 中自由变量个数
 
-> **定义** 矩阵 A 的**秩**（$rank\ A$）是 A 的列空间的维数，即 A 的主元列个数
+> **定义** 矩阵 A 的**秩**（$rank\ A$​）是 A 的列空间的维数，即 A 的主元列个数
+
+有关秩的重要式子：
+
+$0\le r(A)\le min\{m,n\}$
+
+$r(AB)\le min\{r(A),r(B)\}\\
+A_{n\times n}可逆,r(AB)=r(B),\ B_{n\times n}可逆,r(AB)=r(A)\\
+A_{m\times n}列满秩,r(AB)=r(B),\ B_{m\times n}行满秩,r(AB)=r(A)(列行)\\
+AB=\pmb{0}\Rightarrow r(A)+dim\ Nul\ A=n,r(A)+r(B)\le n\\
+AB=\pmb{0},\ A,B\ne \pmb{0}\Rightarrow r(A)<n, r(B)<n$
+
+$r(A\pm B)\le r(A)+r(B)$
+
+$r(A^*)=\begin{cases}
+n,&r(A)=n\\
+1,&r(A)=n-1,&\exist\ C_{ij}\ne 0,AA^*=\pmb{0}\\
+0,&r(A)<n-1,&\forall\ C_{ij}=0
+\end{cases}$
 
 #### 秩定理
 
 > 秩定理：$A_{m\times n}$n 列 $\Rightarrow rank\ A+dim\ Nul\ A=n$
 >
-> （矩阵列数 = 矩阵的秩 + 矩阵零空间维数 = 列空间维数 + 零空间维数）
+> 矩阵列数 = 矩阵的秩 + 矩阵零空间维数 = 列空间维数 + 零空间维数
 
 ### 秩与可逆矩阵定理
 
 > 可逆矩阵定理（续）：$A_{n\times n}$ 可逆
 >
-> $\Leftrightarrow$ A 的列向量构成 $R^n$ 的一个基$\\
-> \Leftrightarrow Col\ A=R^n
+> $\Leftrightarrow$ A 的列向量构成 $\R^n$ 的一个基$\\
+> \Leftrightarrow Col\ A=\R^n
 > \Leftrightarrow dim\ Col\ A=n\\
 > \Leftrightarrow rank\ A=n\\
 > \Leftrightarrow Nul\ A=\{0\}
 > \Leftrightarrow dim\ Nul\ A=0$
+
+## 矩阵因式分解
+
+### LU分解
+
+$A_{m\times n}=LU,\ L_{m\times m}$ 单位下三角初等矩阵，$U_{m\times n}$ 阶梯型矩阵
+
+$Ax=b\Rightarrow L(Ux)=b\Rightarrow Ly=b,Ux=y$
+
+![image-20210628210441296](../assets/image-20210628210441296.png)
+
+**LU分解算法**
+
+行倍加变换 $A\sim U\Leftrightarrow E_p...E_1A=U,\ E_i$​ 为单位下三角初等矩阵（倍加行）
+
+$\Rightarrow A=(E_p...E_1)^{-1}U,\ L=(E_p...E_1)^{-1}$
+
+例：
+
+![image-20210628212502340](../assets/image-20210628212502340.png)
+
+解：
+
+![image-20210628212540016](../assets/image-20210628212540016.png)
+
+![image-20210628212557198](../assets/image-20210628212557198.png)
+
+![image-20210628212634553](../assets/image-20210628212634553.png)
+
+## 计算机图形学中的应用
+
+问题：平移不直接对应于矩阵乘法，并非线性变换——引入：齐次坐标
+
+**齐次坐标**：$(x,y)\in R^2\rightarrow (x,y,1)\in R^3$， 点的齐次坐标只能通过乘 $A_{3\times 3}$ 矩阵来变换
+
+沿向量 $(t_x,t_y)$ 平移：$(x,y)\rightarrow (x+t_x,y+t_y)$ 齐次坐标表示 $(x,y,1)\rightarrow (x+t_x,y+t_y,1)$
+
+$\begin{bmatrix}1&0&t_x\\0&1&t_y\\0&0&1\end{bmatrix}\begin{bmatrix}x\\y\\1\end{bmatrix}=\begin{bmatrix}x+t_x\\y+t_y\\1\end{bmatrix}$
+
+**齐次三维坐标**：$(x,y,z)\in R^3\rightarrow (xh,yh,zh,h)\in R^4$， 点的齐次坐标只能通过乘 $A_{4\times 4}$ 矩阵来变换
+
+沿向量 $(t_x,t_y,t_z)$ 平移：$(x,y,z)\rightarrow (x+t_x,y+t_y,z+t_z)$ 齐次坐标表示 $(x,y,z,1)\rightarrow (x+t_x,y+t_y,z+t_z,1)$
+
+$\begin{bmatrix}1&0&0&t_x\\0&1&0&t_y\\0&0&1&t_z\\0&0&0&1\end{bmatrix}\begin{bmatrix}x\\y\\z\\1\end{bmatrix}=\begin{bmatrix}x+t_x\\y+t_y\\z+t_z\\1\end{bmatrix}$
+
+**透视投影**
