@@ -69,7 +69,7 @@
 | little ... at all                |                                                              | there's probably little reason to pay attention to our dreams at all |
 | keep sb/sth from sth             | prevent sb/sth from doing sth                                | they keep us from sleeping                                   |
 
-### Text4 The Evolution of English——Talking down
+### Text4 The Evolution of English—Talking down
 
 | word                  | explanation                                                  |                                                              |
 | --------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -274,7 +274,117 @@
 | a day earlier                     | 前一天                                                       |                                                              |
 | put sb. on notice that...         | 通知某人...                                                  | that **puts** corporate America **on notice that** regulators will act if firms fail to provide adequate datasecurity |
 
+## 2008 
 
+### Text1 Gender Inequality: Women Under Stress
+
+| word            | explanation                                         |                                                              |
+| --------------- | --------------------------------------------------- | ------------------------------------------------------------ |
+| disorder        | 失调；紊乱；不适；疾病                              | Women are particularly susceptible to developing depression and anxiety **disorders** in response to stress compared to men |
+| psychiatrist    | 精神病学家；精神科医生                              |                                                              |
+| somehow         | ad. 不知为什么/怎么地；以某种方式                   |                                                              |
+| not necessarily | 未必/并不                                           | It’s **not necessarily** that women don’t cope as well       |
+| observe         | 观察，注意到，评论，遵守                            | she **observes**, “it’s just that they’re dealing with so many more things that they become worn out from it more visibly and sooner. |
+| expose          | 暴露/显露，揭露，置身于，接触                       | the kinds of things that women are **exposed** to tend to be in more of a chronic or repeated **nature** |
+| nature          | 本质/性质，性格/性情，习惯                          |                                                              |
+| violence        | 暴力/暴行，激烈/强烈                                |                                                              |
+| domestic        | 本国的/国内的，家用/家庭/家务的，乐于持家的，驯养的 | The kinds of interpersonal violence that women are  exposed to tend to be in **domestic** situations |
+| one-shot        | 一次性/非经常性的                                   |                                                              |
+| deal            | 坏运气;不公平的对待;                                |                                                              |
+| wear-and-tear   | 磨损/损耗/损坏, 折磨                                | The wear-and-tear that comes from these longer relationships can be quite devastating. |
+| strain          | 压力，拉力，张力，拉伤，品种，(疾病)类型，性格特点  | Not everyone experiences the kinds of severe chronic  stresses. But most women today are coping with a lot of obligations, with few breaks, and feeling the **strain**. |
+
+### Text2 Scientific Publishing—The Paperless Library
+
+| word              | explanation                                                 |                                                              |
+| ----------------- | ----------------------------------------------------------- | ------------------------------------------------------------ |
+| affiliations      | 隶属/从属 (group)                                           |                                                              |
+| peer              | n. 身分（或地位）相同的人 同龄人 同辈<br />v. 仔细看 盯着看 | A journal editor would then remove the author’s names and **affiliations** from the paper and send it to their **peers** for review |
+| rest with         | 权力 责任 决定权在于，属于                                  | Copyright **rested with** the journal publisher              |
+| seek knowledge of | 寻求/试图 了解/获知                                         | researchers seeking knowledge of the results would have to subscribe to the journal |
+| make A B          | 使A成为B                                                    | and pressure from funding agencies is **making** access to scientific results a reality |
+| far-reaching      | 影响深远/意义重大的                                         | The Organization for Economic Co-operation and Development has just issued a report describing the **far-reaching** consequences of this |
+| consequence       | 结果/后果/影响                                              |                                                              |
+| heavy             | 沉重的                                                      | The report makes **heavy** reading for publishers who have, so far, made **handsome** profits |
+| handsome          | 数量大的                                                    |                                                              |
+| signal            | v. 发信号、示意，暗示 预示 表明                             | But it **goes further** than that. It **signals** a change in **what** has, until now, been a key element of scientific **endeavor** |
+| ready             | 现成的;就绪的;易于得到的                                    | The value of knowledge and the return on the public investment in research depends, in part, upon wide   distribution and ready **access** |
+| subject           | 学科                                                        |                                                              |
+| identify          | 认出，找到/发现，显示/说明身份                              | three main ones were **identified** by the report’s authors  |
+| title             | 一本/种 书(刊)/杂志                                         | institutional subscribers **pay for access** to a collection of online journal **titles** through site-licensing agreements |
+| pay for access    |                                                             |                                                              |
+| delay             | n.v. 延迟/延误/拖延                                         | such as **delayed** open-access, where journals allow only subscribers to read a paper for the first six months, before making it freely available to everyone who wishes to see it |
+
+### Text3 Napoleon's Revenge
+
+| word                           | explanation                                                  |                                                              |
+| ------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| obscure                        | a. 鲜为人知，晦涩/费解/难懂<br />v. 遮掩/遮蔽，使模糊不清，使晦涩/难懂 | The trend in sports, though, may be **obscuring** an unrecognized reality: |
+| have done as far as sb. can do |                                                              | In the general population today, we’ve pretty much gone as far as we can go |
+| increasingly                   | 越来越(多地)/日益                                            | their increase in height appears to result from the **increasingly** common practice of recruiting players from all over the world |
+| notably                        | ad. 尤其/特别，(强调)                                        | Growth, which rarely continues beyond the age of 20, demands calories and nutrients—**notably**, protein—to feed expanding tissues |
+| infection                      | 传染；感染(病)                                               |                                                              |
+| in the/sb's way                | 妨碍；挡着…的路                                              | At the start of the 20th century, under-nutrition and childhood **infections** got **in the way** |
+| secular                        | 现世的；世俗的                                               | a pattern known as the **secular** trend in height           |
+| substantial                    | 数量/价值/重要性大的<br />坚固/结实的                        | Genetically speaking, there are advantages to avoiding **substantial** height |
+| birth canal                    | 产道                                                         | During childbirth, larger babies have more difficulty passing through the **birth canal** |
+| anthropologist                 | 人类学家                                                     |                                                              |
+| maximum                        | a.n. 最大限度/极限                                           | Genetic **maximums** can change, but don’t expect this to happen soon |
+| be conditioned                 | v. 受影响, 习惯                                              | Human height is **conditioned** by the upright posture.      |
+| garment                        | 一件衣服, 服装                                               |                                                              |
+
+### Text4 The Sorry Legacy of the Founders
+
+| word               | explanation                                                  |                                                              |
+| ------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| having done        | 非谓语(主动)先于主语谓语完成                                 | he hired a dentist to transplant nine teeth into his jaw—**having extracted** them from the mouths of his slaves |
+| far different      | 截然不同                                                     | That’s a **far different** image from the cherry-tree-chopping George most people remember from their history books |
+| spur               | v. motivate刺激/鼓舞 推动/促进                               | They have been **spurred** in part by DNA evidence made available in 1998 |
+| certainly          | 无疑/确定/肯定                                               |                                                              |
+| father             | v. When a man fathers a child, he makes a woman pregnant and their child is born. | which **almost certainly** proved Thomas Jefferson had **fathered** at least one child with his slave Sally Hemings |
+| from the bottom up | 完全/自底向上/从头至尾                                       | And only over the past 30years have scholars examined history from the bottom up |
+| More than anything | 更重要的                                                     | **More than anything**, the historians say, the founders were **hampered** by the culture of their time |
+| hamper             | v. 妨碍;阻碍;牵制;束缚                                       |                                                              |
+| bedrock            | 基岩，基本原则；基础；基石                                   | they also understood that it was part of  the  political and economic **bedrock** of the country they helped to create |
+| part               | v. 分开，离开                                                | For one thing, the South could not afford to **part** with its slaves. |
+| sign               | 签字/签署/签约                                               |                                                              |
+| Constitution       | 宪法/章程                                                    |                                                              |
+| peculiar           | 独特/特有的                                                  | The southern states would not have **signed** the **Constitution** without protections for the “**peculiar institution**,“ |
+| institution        | 机构，制度                                                   |                                                              |
+| statesmen          | 政治家                                                       | And the **statesmen**’s political lives depended on slavery. |
+| formula            | 公式 方程式 计算式 分子式                                    |                                                              |
+| college            | 学会;协会;社团                                               |                                                              |
+| hand               | v. 递;交;给                                                  |                                                              |
+| inflate            | v. 使胀大/膨胀，增加/抬高，夸大/吹嘘                         | The three-fifths **formula** **handed** Jefferson his narrow victory in the presidential election of 1800 by **inflating** the votes of the southern states in the **Electoral College** |
+| in office          | 就职                                                         |                                                              |
+| with               | using 用/借                                                  | Once **in office**, Jefferson extended slavery **with** the Louisiana Purchase in 1803 |
+| still              | despite what has just been said                              | **Still**, Jefferson freed Hemings’s children—though not Hemings herself or his approximately 150other slaves |
+| will               | n. 意志/毅力/自制力, 意愿/心愿, 遗嘱                         | Washington, who had begun to believe that..., overcame the strong opposition of his relatives to grant his  slaves their freedom in his **will** |
+| legislative        | 立法的                                                       | Only a decade earlier, such an act would have required **legislative** approval in Virginia |
+
+## 2009
+
+### Text1 Can You Become a Creature of New Habits?
+
+| word                              | explannation                                                 |                                                              |
+| --------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| auto-pilot                        | 自动巡航                                                     |                                                              |
+| reach                             | achieve a particular aim                                     | reach for habits mindlessly                                  |
+| rule                              | 控制/支配/影响                                               |                                                              |
+| reflect                           | 沉思/深思，(特别的想法)                                      | unreflecting 缺乏/不善思考的                                 |
+| herd                              | 人群/兽群                                                    | Not choice, but habit rules the unreflecting herd            |
+| do A in the same...as B (be done) | 在同样...下do A与B                                           | it seems paradoxical to talk about habits in the same context as creativity and innovation |
+| parallel                          | n. 存在或发生在不同地点或时间的相似之物，类似物；两者间的近似之处，相似之处 <br />v. 与…同时发生；与…相似<br />a. 同时发生的；相类似的；平行的；并列的 | when we consciously develop <br/>new habits, we create **parallel** paths, and even entirely new brain cells, that can jump our **trains** of thought onto new, innovative tracks |
+| train                             | (想法/事件等)一连串，一系列                                  | **trains** of thought                                        |
+| dismiss                           | it is not important enough for you to think about or consider.<br />stop thinking about | Rather  than  **dismissing**  ourselves  as unchangeable  creatures  of habit,  we can instead direct our own change by consciously developing new habits |
+| inherent                          | 内在/固有的；生来/与生俱来                                   | the more new things we try - the more we step outside our comfort zone - the more **inherently** creative we become, both in the workplace and in our personal lives |
+| bypass                            | 绕过；避开                                                   |                                                              |
+| fascination and Wonder            | 对奇妙事物着迷                                               |                                                              |
+| innovation                        | 创新 革新                                                    |                                                              |
+| perpetuate                        | someone or something perpetuates a situation, system, or belief, especially a bad one, they **cause it to continue** | That's a lie that we have perpetuated, and it fosters **commonness** |
+| commonness                        | 普通/平凡/平庸                                               |                                                              |
+| do more of it                     |                                                              | Knowing  what  you're  good  at  and  doing  even  more  of it  creates excellence. |
+| come in                           | 起作用，发挥作用                                             | This is where developing new habits comes in.                |
 
 
 

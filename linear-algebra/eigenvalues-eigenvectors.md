@@ -20,8 +20,9 @@ $A\xrightarrow[行倍加]{行交换r次} U\Rightarrow|A|=\begin{cases}(-1)^r·|U
 
 > **定理** 可逆矩阵定理（续）
 >
-> A不可逆 $|A|=0\Leftrightarrow\exist\ \lambda_i=0$​
-> A可逆 $|A|\ne 0\Leftrightarrow \forall\ \lambda_i\ne 0$​
+> A不可逆 $|A|=0\Leftrightarrow\exist\ \lambda_i=0$
+> 
+> A可逆 $|A|\ne 0\Leftrightarrow \forall\ \lambda_i\ne 0$
 
 **特征方程**
 
