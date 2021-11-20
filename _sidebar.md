@@ -47,3 +47,9 @@
   - [网络层](network/network-layer.md)
   - [传输层](network/transport-layer.md)
   - [应用层](network/application-layer.md)
+
+- **英语**
+  - [单词注释](english/table.md)
+  - [语法/句子](english/grammar.md)
+  - [阅读](english/reading.md)
+  - [写作](english/writing.md)

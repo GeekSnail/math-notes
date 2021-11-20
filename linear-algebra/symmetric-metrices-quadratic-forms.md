@@ -4,15 +4,28 @@
 
 $\forall A\Rightarrow A^TA$ 是对称矩阵
 
-> **定理** A 是对称矩阵 $\Rightarrow A$ 的不同特征值对应的不同特征空间的任意两个特征向量正交
+> **定理** A 是对称矩阵 $\Rightarrow A$ 的<u>不同特征值对应的不同特征空间的任意两个特征向量**<正交>**</u>
 >
-> $A^T=A,不同特征值\lambda_1,\lambda_2对应特征向量v_1,v_2\Rightarrow v_1·v_2=0$
+> $A^T=A,不同特征值\lambda_1,\lambda_2对应特征向量v_1,v_2\Rightarrow v_1^Tv_2=0$
 
 ![image-20210703150002055](../assets/image-20210703150002055.png)
 
-> **定理** $A_{n\times n}$ 可正交对角化 $\Leftrightarrow A$ 是对称矩阵
+> **定理** $A_{n\times n}$ <u>可正交对角化</u> $\Leftrightarrow A$ <u>是对称矩阵</u>
 >
 > $A^T=A\Leftrightarrow \exist 正交阵 P:P^{-1}=P^T, A=PDP^T$
+
+**对称矩阵的正交对角化**
+
+将实对称 A 正交对角化，即求<u>正交矩阵</u> P 和对角矩阵 D，$A=PDP^T$ 
+
+1. 求 A 的特征值：$|\lambda I-A|=0$
+2. 求 A 的3个线性无关的特征向量：$(\lambda_i I-A)x=0\Rightarrow \{v_1,v_2,v_3\}$
+   - 3个互异单根 $\lambda_i\ne\lambda_j$，不同特征值对应特征向量已满足正交，<u>直接单位化</u>
+   - 1个单根 $\lambda_1$，2个重根 $\lambda_2=\lambda_3$，将后者对应2维特征空间的2个特征向量先正交化，再单位化
+   - 3个重根 $\lambda_i=\lambda_j$，将对应3维特征空间的3个特征向量先 Schmidt 正交化，再单位化
+3. 用2步得到的特征向量构造正交矩阵 $P=[v_1,v_2,v_3]$
+4. 用特征向量对应的特征值构造矩阵 $D=\begin{bmatrix}\lambda_1&0&0\\0&\lambda_2&0\\0&0&\lambda_3\end{bmatrix}$
+5. 验证：$AP=PD$
 
 **谱定理**
 
@@ -40,18 +53,88 @@ $u_ju_j^T$ 是秩为1的 $n\times n$ 投影矩阵，$(u_ju_j^T)x$ 是 x 在 $u_j
 
 > **定义** 二次型：$R^n$ 上的一函数，它在向量 x 的值 $Q(x)=x^TAx$
 >
-> 二次型的矩阵：$A_{n\times n}$ 对称矩阵
+> 二次型的矩阵：$A_{n\times n}$ 对称矩阵 $A^T=A$
 
 $R^3$​ 中的二次型：$Q(x)=x^TAx=[x_1\ x_2\ x_3]
 \begin{bmatrix}a&d&f\\d&b&e\\f&e&c\end{bmatrix}
 \begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}
 =ax_1^2+bx_2^2+cx_3^2+2dx_1x_2+2ex_2x_3+2fx_1x_3$​
 
+<u>注：非对称矩阵可将三角部分值 = (右上+左下) / 2，变换为满足对称矩阵的二次型</u>
+
+二次标准型：仅含平方项
+
+二次规范型：在二次标准型基础上规定 $y_1^2+...+y_a^2-...-y_b^2$，系数依次为若干个1，若干个-1，若干个0
+
+如：$x_1^2+x_3^2$ 系数为 1,0,1 非规范型
+
 **二次型的变量代换**
 
 变量代换：$x,y\in R^n,\ x=Py, y=P^{-1}x, P$ 是可逆矩阵，其列确定 $R^n$ 的一个基，y 是 x 相对该基的坐标向量
 
 二次型变量代换：$x^TAx=(Py)^TA(Py)=y^TP^TAPy=y^T(P^TAP)y,\exist 正交阵 P,x^TAx=y^TDy$
+
+注：$P^TAP$ 为对称 $(P^TAP)^T=P^TAP=D$
+
+**合同性**
+
+$A_{n\times n},B_{n\times n},\exist P$ 可逆，$A⋍B:P^TAP=B$
+
+$A⋍B$，则对称性等价互推: $A^T=A\Leftrightarrow B^T=B$，证: $B^T=(P^TAP)^T=P^TAP=B$
+
+$A⋍B$，有等价互推命题: A, B 可逆 $\Leftrightarrow A^{-1}⋍B^{-1}$，证: $B^{-1}=(P^TAP)^{-1}=((P^{-1})^T)^TA^{-1}(P^{-1})^T$
+
+**矩阵关系总结**
+
+- 等价：A, B 同型，$\exist$ 可逆 P, Q, $PAQ=B$
+- 相似：A, B 同方，$\exist$ 可逆 P, $P^{-1}AP=B$
+- 正交相似：A, B 同方，$\exist$ 正交 P, $P^TAP=B$
+- 合同：A, B 同方，$\exist$ 可逆 P, $P^TAP=B$
+
+```
+      ↗相似↘
+正交相似————⟶等价 
+      ↘合同↗
+```
+
+### 化二次型为标准型
+
+#### 配方法
+
+（含平方项）按 $x_1,x_2,x_3$ 顺序，把含 $x_1$ 的合并，配完 $x_1$ 后面不再出现 $x_1$ 项，剩下同理
+
+$x_1^2-3x_2^2+4x_3^2-2x_1x_2+2x_1x_3-6x_2x_3\\
+=x_1^2-2x_1(x_2-x_3)+(x_2-x_3)^2-(x_2-x_3)^2\ -3x_2^2+4x_3^2-6x_2x_3\\
+=(x_1-x_2+x_3)^2-(4x_2^2+4x_2x_3)+3x_3^2\\
+=(x_1-x_2+x_3)^2-(2x_2+x_3)^2+4x_3^2\\
+=y_1^2-y_2^2+4y_3^2$ 
+
+反解 x：$\begin{cases}x_1=y_1+1/2y_2-3/2y_3\\x_2=1/2(y_2-y_3)\\x_3=y_3\end{cases}x=\begin{bmatrix}1&1/2&-3/2\\0&1/2&-1/2\\0&0&1\end{bmatrix}y$
+
+或：$y=P^{-1}x=\begin{bmatrix}1&-1&1\\0&2&1\\0&0&1\end{bmatrix}x,\  x=\begin{bmatrix}1&1/2&-3/2\\0&1/2&-1/2\\0&0&1\end{bmatrix}y$
+
+（不含平方项）先用平方差表示交叉项替换出平方项，然后再配一次
+
+$2x_1x_2-4x_1x_3+10x_2x_3,\begin{cases}x_1=y_1-y_2\\x_2=y_1+y_2\\x_3=y_3\end{cases}\\
+=2y_1^2-2y_2^2+6y_1y_3+16y_2y_3$
+
+#### 初等变换法
+
+$P^TAP=(E_k^T...E_1^T)A(E_1...E_k)=D, I(E_1...E_k)=P$
+
+$\begin{pmatrix}A\\I\end{pmatrix}\xrightarrow[对A再做相应初等行变换E_i^T]{对A,I做初等列变换E_i}\begin{pmatrix}D\\P\end{pmatrix}$
+
+$\begin{pmatrix}A\\I\end{pmatrix}=\begin{pmatrix}1&1&1\\1&2&2\\1&2&1\\1&0&0\\0&1&0\\0&0&1\end{pmatrix}\xrightarrow{c_{2,3}+=-c_1}\begin{pmatrix}1&0&0\\1&1&1\\1&1&0\\1&-1&-1\\0&1&0\\0&0&1\end{pmatrix}\xrightarrow{r_{2,3}+=-r_1}\begin{pmatrix}1&0&0\\0&1&1\\0&1&0\\1&-1&-1\\0&1&0\\0&0&1\end{pmatrix}$（A 经一套行列变换后仍对称）
+
+$\xrightarrow{c_3+=-c_2}\begin{pmatrix}1&0&0\\0&1&0\\0&1&-1\\1&-1&0\\0&1&-1\\0&0&1\end{pmatrix}\xrightarrow{r_3+=-r_2}\begin{pmatrix}1&0&0\\0&1&0\\0&0&-1\\1&-1&0\\0&1&-1\\0&0&1\end{pmatrix}=\begin{pmatrix}D\\P\end{pmatrix}$
+
+<u>注：A 化成对角矩阵 D 后，式子还可继续化为规范型（对角线依次为：1,-1,0）</u>
+
+#### 正交变换法
+
+求特征值，
+
+求特征向量，正交化，单位化
 
 > **定理** 主轴定理
 >

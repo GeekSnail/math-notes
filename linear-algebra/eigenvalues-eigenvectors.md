@@ -5,7 +5,7 @@ $T:x\mapsto Ax, T(x)=Ax=\lambda x$，A 对 x 的作用仅仅“拉伸”了 x
 > \Leftrightarrow (A-\lambda I)x=0$ 有非零解 （方程有自由变量）$x\\
 > \Leftrightarrow \lambda$ 为 A 的特征值，$x$ 为对应 $\lambda$ 的特征向量
 
-A 对应于 $\lambda$ 的特征空间：$(A-\lambda I)x=0$ 的解集，$Nul\ (A-\lambda I)$ 零空间
+A 对应于 $\lambda$ 的特征空间：$(A-\lambda I)x=0$ 的解集，$Nul\ (A-\lambda I)$ 零空间，秩：$n-r(A-\lambda E)$
 
 > **定理** A 为三角矩阵 $\Rightarrow$ A 的主对角线元素是其特征值
 
@@ -59,14 +59,24 @@ A 与 B 相似：A 相似于 B：$P^{-1}AP=B,A=PBP^{-1}\Leftrightarrow$ B 相似
 证：$B=P^{-1}AP\Rightarrow B-\lambda I=P^{-1}AP-\lambda P^{-1}P=P^{-1}(A-\lambda I)P\\
 \Rightarrow |B-\lambda I|=|P^{-1}(A-\lambda I)P|=|A-\lambda I|$
 
+**相似矩阵性质**
+
+> A, B 有相同特征值 $|A|=|B|,tr(A)=tr(B).\ |\lambda E-B|=|\lambda P^{-1}EP-P^{-1}AP|=|P^{-1}||\lambda E-A||P|=|\lambda E-A|$
+>
+> A, B 同时不可逆 $|A|=|B|=0$，或可逆 $|A|=|B|\ne 0$ 且逆矩阵相似 $B^{-1}=(P^{-1}AP)^{-1}=P^{-1}A^{-1}P$
+>
+> $A^m$ 相似 $B^m,\ P^{-1}A^mP=B^m$
+
 ## 5.3 对角化
 
 分解式：$A=PDP^{-1}$（D 为对角矩阵），利用分解式可快速计算 $A^k$
 
-> **定理** 对角化定理：$A_{n\times n}$ 可对角化 $\Leftrightarrow A$ 有 n 个线性无关的特征向量（形成 $R^n$ 的基）
-> 
+> **定理** 对角化定理：$A_{n\times n}$ 可相似对角化 $\Leftrightarrow A$ 有 n 个线性无关的特征向量（形成 $R^n$ 的基）
+>
 > $\exist D$对角阵，$A_{n\times n}=PDP^{-1}\Leftrightarrow P$ 的列向量是 A 的 n 个线性无关的特征向量$\\
 > $（D 的主对角线元素：A 对应 P 中特征向量的特征值）
+>
+> 证：$AP=PD\Leftrightarrow \forall v_i\in P,Av_i=\lambda_iv_i,\ v_i$ 是A的线性无关的特征向量
 
 $R^n$ 的特征向量基：$A_{n\times n}$ 的 n 个线性无关的特征向量
 
@@ -84,17 +94,29 @@ $R^n$ 的特征向量基：$A_{n\times n}$ 的 n 个线性无关的特征向量
 4. 用特征向量对应的特征值构造矩阵 $D=\begin{bmatrix}\lambda_1&0&0\\0&\lambda_2&0\\0&0&\lambda_3\end{bmatrix}$
 5. 验证：$AP=PD$
 
-矩阵可对角化的充分条件
+**矩阵可对角化的充分条件**
 
 > **定理** $A_{n\times n}$ 有 n 个相异特征值 $\Rightarrow$ A 可对角化
 
 **特征值不全相异的矩阵**
 
-> **定理** $A_{n\times n}$ 相异的特征值：$\lambda_1,...,\lambda_p,1\le k\le p$，
+> **定理** $A_{n\times n}$ 相异的特征值：$\lambda_1,...,\lambda_p,1\le k\le p<n$，
 >
-> - $\lambda_k$ 的特征空间的维数 $=n-r(A-\lambda E)\le\lambda_k$ 的代数重数
-> - $A_{n\times n}$ 可对角化 $\Leftrightarrow$ 所有不同特征空间的维数之和 $=n\\\Leftrightarrow A$ 的特征多项式 $|A-\lambda I|$ 可完全因式分解 $\\\Leftrightarrow$ 每个 $\lambda_k$ 的特征空间维数 $=n-r(A-\lambda E)=\lambda_k$ 的代数重数
+> - $\lambda_k$ 的特征空间的维数 $=n-r(A-\lambda_k E)\le\lambda_k$ 的代数重数
+>
+> - $A_{n\times n}$ 可对角化 $\Leftrightarrow$ 所有不同特征空间的维数之和 =n
+>
+>   $\Leftrightarrow A$ 的特征多项式 $|A-\lambda I|$ 可完全因式分解
+>
+>   $\Leftrightarrow$ 每个 $\lambda_k$ 的特征空间维数 $=n-r(A-\lambda_k E)=\lambda_k$ 的代数重数
+>
 > - $A_{n\times n}$ 可对角化，$B_k$ 是对应 $\lambda_k$ 的特征空间的基 $\Rightarrow B_1,...,B_p$ 基中所有向量的集合是 $R^n$ 的特征向量基
+
+可对角化矩阵转置
+
+$A^T 特征向量 = A 特征向量, A^T$ 特征向量构成的矩阵: $(P^T)^{-1}$
+
+证：$(P^{-1}AP)^T=P^TA^T(P^{-1})^T=((P^T)^{-1})^{-1}A^T(P^T)^{-1}=D$
 
 ## 5.4 特征向量与线性变换
 

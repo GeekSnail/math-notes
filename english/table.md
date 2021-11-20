@@ -381,12 +381,28 @@
 | bypass                            | 绕过；避开                                                   |                                                              |
 | fascination and Wonder            | 对奇妙事物着迷                                               |                                                              |
 | innovation                        | 创新 革新                                                    |                                                              |
-| perpetuate                        | someone or something perpetuates a situation, system, or belief, especially a bad one, they **cause it to continue** | That's a lie that we have perpetuated, and it fosters **commonness** |
+| perpetuate                        | someone or something perpetuates a situation, system, or belief, especially a bad one, they **cause it to continue** | That's a lie that we have **perpetuated**, and it fosters **commonness** |
 | commonness                        | 普通/平凡/平庸                                               |                                                              |
 | do more of it                     |                                                              | Knowing  what  you're  good  at  and  doing  even  more  of it  creates excellence. |
 | come in                           | 起作用，发挥作用                                             | This is where developing new habits comes in.                |
 
+### Text2 Who's Your Daddy? The Answer May Be at the Drugstore
 
+| word                  | explanation                         |                               |
+| --------------------- | ----------------------------------- | ----------------------------- |
+| paternal              | ad. fatherly 父亲的;父亲般的;父系的 |                               |
+| paternity             | 父亲身份                            | paternity and kinship testing |
+| shell out...for       | pay/spend a lot of money for sth    |                               |
+| over-the-counter(OTC) | 无需处方可买到的；非处方的          |                               |
+|                       |                                     |                               |
+
+3.1 Among the most popular:  paternity and kinship testing, which adopted children 
+can use to find their biological relatives and families can use to track down kids put 
+up for adoption.
+
+Among (the DNA tests) the most popular (one is): paternity and kinship testing, **which** <u>adopted children</u> 
+can use | to find their biological relatives and families can use | to track down kids (who are) put 
+up for adoption.
 
 
 

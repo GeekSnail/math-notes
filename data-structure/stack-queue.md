@@ -10,6 +10,16 @@
 
 ![image-20210708001925055](../assets/image-20210708001925055.png)
 
+错题：
+
+栈：1,7,17
+
+队列：2,18
+
+栈与队列应用：1,9
+
+特殊矩阵存储：7,8
+
 ## 3.1 栈
 
 ### 栈的基本概念
@@ -97,7 +107,20 @@ typedef struct Node {
 } *Stack;
 ```
 
+<u>注：对于含头指针的循环单链表 栈顶出栈需时间复杂度 $O(n)$，因为需定位其前驱结点</u>
 
+例题：[设有下图所示的火车车轨，入口到出口之间有n条轨道，列车的行进方向均为从左至右，列车可驶入任意一条轨道。现有编号为1~9的9列列车，驶入的次序依次是8,4,2,5,3,9,1,6,7。若期望驶出的次序依次为1~9，则n至少是?](https://www.nowcoder.com/questionTerminal/52c032a83a544cc89e3d822ef41cefb4)
+
+![](https://uploadfiles.nowcoder.com/images/20180504/7366756_1525397985291_EE8A8A3F74DFB3DCCCA15D9709BCD35A)
+
+解：题中的n条轨道为队列，可驶入大于1辆列车
+
+```
+   98
+76 54
+   32
+   1
+```
 
 ## 3.2 队列
 
@@ -120,7 +143,7 @@ GetHead(Q, &x);
 ```cpp
 struct Queue {
     int data[MaxSize];
-    int front=0, rear=0; //队头、队尾指针
+    int front=0, rear=0; //队头,队尾指向空单元
 }
 ```
 
@@ -144,9 +167,9 @@ struct Queue {
 
 1. 牺牲一个单元(队首或队尾)
 
-   队满：`(Q.rear+1) % MaxSize == Q.front`
+   <u>队满：`(Q.rear+1) % MaxSize == Q.front`</u>
 
-   队列长度：`(Q.rear+MaxSize-Q.front) % MaxSize`
+   <u>队列长度：`(Q.rear+MaxSize-Q.front) % MaxSize`</u>
 
 2. 类型声明里增加 `int size;` 元素个数
 
@@ -161,6 +184,7 @@ struct Queue {
 **牺牲队头，front 指向空单元，先指针+1**
 
 ```cpp
+// front □ ■ ■ rear
 bool EnQueue(Queue &Q, int x) {
     if ((Q.rear+1) % MaxSize == Q.front)
         return false;
@@ -180,6 +204,7 @@ bool DeQueue(Queue &Q, int &x) {
 **牺牲队尾，rear 指向空单元，后指针+1**
 
 ```cpp
+// front ■ ■ □ rear
 bool EnQueue(Queue &Q, int x) {
     if ((Q.rear+1) % MaxSize == Q.front)
         return false;
@@ -209,11 +234,11 @@ typedef struct {
 } Queue;
 ```
 
-**不带头节点的链队**
+注：链队对于循环单链表 入队/出队都需修改指针，多余
+
+#### 不带头节点的链队
 
 队空：`Q.front == NULL || Q.rear == NULL`
-
-初始化
 
 ```cpp
 void InitQueue(Queue &Q) {
@@ -251,42 +276,76 @@ bool DeQueue(Queue &Q, int &x) {
 }
 ```
 
-**带头节点的链队**
+#### 带队尾空单元的链队
 
-![image-20210708185929007](../assets/image-20210708185929007.png)
+牺牲队尾，rear 指向空单元，先赋值/取值，后更新指针
 
-队空：`Q.front == Q.rear || Q.front->next == NULL`
-
-初始化
+队空：`Q.front == Q.rear`
 
 ```cpp
+// front □ rear
 void InitQueue(Queue &Q) {
     Q.front = Q.rear = (Node*)malloc(sizeof(Node));
     Q.front->next = NULL;
 }
 ```
 
-入队：尾插法，更新尾指针
+入队：先尾指针结点赋值，再更新尾指针
 
-出队：只有一个节点时，尾指针更新等于头指针
+出队：先取头指针结点值，再更新头指针
+
 
 ```cpp
+// front ■ □ rear
 void EnQueue(Queue &Q, int x) {
-    Node *s = (Node*)malloc(sizeof(Node));
-    s->data = x;
-    s->next = NULL;
-    Q.rear->next = s; //尾插法，更新尾指针
-    q.rear = s; //
+    Q.rear->data = x;
+    Q.rear->next = (Node*)malloc(sizeof(Node));
+    q.rear = Q.rear->next; //
 }
 bool DeQueue(Queue &Q, int &x) {
-    if (Q.front == Q.rear) //队列空
+    if (Q.rear == Q.front)
         return false;
-    Node *tmp = Q.front->next; //
-    if (Q.rear == tmp) //只有一个节点时，尾指针更新等于头指针
-        Q.rear = Q.front; //
-    Q.front->next = tmp->next; //
-    x = tmp->data; //
-    free(p);
+    Node *tmp = Q.front;
+    x = Q.front->data;
+    Q.front = Q.front->next; //
+    free(tmp);
+    return true;
+}
+```
+
+#### 循环单链队
+
+设计一个队列, 满足: ①初始时队列为空; ②入队时, 允许增加队列占用空间; ③出队后, 出队元素所占用的空间可重复使用, 即整个队列所占用的空间只增不减.
+
+分析：<u>使用带队尾空单元的链队，入队增加新空间时更新队尾指针`rear`及其`next`</u>
+
+初始状态：头尾指针指向空单元
+
+```c
+Q.front = Q.rear = (Node*)malloc(sizeof(Node));
+Q.front->next = Q.front; // Q.front == Q.rear
+```
+
+队满：`Q.rear->next == Q.front`
+
+```cpp
+//   init: front □   rear
+//   full: front ■ □ rear
+// nofull:       □ □ front rear
+//          rear □ ■ front
+void EnQueue(Queue &Q, int x) {
+    Q.rear->data = x;
+    if (Q.rear->next == Q.front) { //队列满
+        Q.rear->next = (Node*)malloc(sizeof(Node));
+        Q.rear->next->next = Q.front;
+    }
+	q.rear = Q.rear->next; //
+}
+bool DeQueue(Queue &Q, int &x) {
+    if (Q.rear == Q.front) //队列空
+        return false;
+    x = Q.front->data;
+    Q.front = Q.front->next; //
     return true;
 }
 ```
@@ -306,9 +365,7 @@ push_back(x);
 push_front(x);
 ```
 
-**两个栈底邻接的栈**：限定双端队列入队出队都在同一端
-
-
+**两个栈底邻接的栈**
 
 限定受限的双端队列入队出队都在同一端时，该端相当于栈
 
@@ -334,14 +391,30 @@ push_front(x);
 
 ![image-20210708212134074](../assets/image-20210708212134074.png)
 
-后缀表达式求值过程：对于表达式每一项，
+**后缀表达式求值过程**
+
+对于表达式每一项，
 
 - 若该项是操作数，则压入栈；
 - 若该项是操作符<op>，则连续从栈中退出两操作数Y、X，形成运算指令 X<op>Y，将结果再压入栈
 
 栈顶存放最终运算结果
 
-**中缀表达式转换后缀表达式**
+**中缀表达式转换前缀/后缀表达式**
+
+- 先按照运算符优先级对所有运算单位加括号
+
+- 转前缀：把运算符移动到对应括号前面
+
+  转后缀：把运算符移动到对应括号后面
+
+- 去掉括号
+
+例：a/b+(c\*d-e\*f)/g 转后缀
+
+((a/b)+(((c\*d)-(e\*f))/g)) => ((ab)/(((cd)\*(ef)\*)-g)/)+ => ab/cd\*ef\*-g/+
+
+**中缀表达式转换后缀表达式算法**
 
 - 如果字符是 '(', '*', '/'，入栈
 
@@ -349,9 +422,9 @@ push_front(x);
 
 - 如果字符是 '+', '-'，
 
-  （先判断高优先级）如果栈非空且栈顶为 '*', '/'，输出栈顶符号并出栈；
+  （先判断高优先级）如果栈非空且栈顶为 '*', '/'，栈顶符号出栈输出；
 
-  （再判断低优先级）如果栈非空且栈顶为 '+', '-'，输出栈顶符号并出栈；
+  （再判断低优先级）如果栈非空且栈顶为 '+', '-'，栈顶符号出栈输出；
 
   入栈
 
@@ -396,8 +469,6 @@ string midToSuffix(string s) {
 }
 ```
 
-
-
 ### 栈在递归中的应用
 
 ### 队列在层次遍历中的应用
@@ -413,6 +484,8 @@ string midToSuffix(string s) {
   队首节点出队输出
 
 ![image-20210710010809636](../assets/image-20210710010809636.png)
+
+注：广度优先搜索图类似树的层序遍历
 
 ### 队列在计算机系统的应用
 
@@ -462,7 +535,7 @@ B[\frac{i(i-1)}{2}+j-1] & i\ge j\\
 B[\frac{n(n+1)}{2}] & i<j
 \end{cases}$
 
-**上三角矩阵**
+<u>**上三角矩阵**</u>
 
 一维数组末尾 $B[\frac{n(n+1)}{2}]$ 存放下三角区同一常数
 
