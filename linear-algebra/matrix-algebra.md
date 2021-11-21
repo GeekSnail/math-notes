@@ -60,6 +60,10 @@ $A_{n\times n}$ 的两个多项式乘法可交换 $f(A)g(A)=g(A)f(A)$
 >
 > $I_mA=A=AI_m$​
 
+矩阵乘法的行列式
+
+$A_{n\times n},B_{n\times n}\Rightarrow |AB|=|A|·|B|$
+
 **矩阵乘幂**
 
 $A^0=I,A^kA^h=A^{k+h},(A^k)^h=A^{kh}$
