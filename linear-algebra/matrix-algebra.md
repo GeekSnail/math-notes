@@ -291,11 +291,20 @@ $Nul\ A$ 的维数：$Ax=0$ 中自由变量个数
 
 $0\le r(A)\le min\{m,n\}$
 
-$r(AB)\le min\{r(A),r(B)\}\\
-A_{n\times n}可逆,r(AB)=r(B),\ B_{n\times n}可逆,r(AB)=r(A)\\
-A_{m\times n}列满秩,r(AB)=r(B),\ B_{m\times n}行满秩,r(AB)=r(A)(列行)\\
-AB=\pmb{0}\Rightarrow r(A)+dim\ Nul\ A=n,r(A)+r(B)\le n\\
-AB=\pmb{0},\ A,B\ne \pmb{0}\Rightarrow r(A)<n, r(B)<n$
+$r(AB)\le min\{r(A),r(B)\}$
+
+$A_{n\times n}可逆,r(AB)=r(B),\ B_{n\times n}可逆,r(AB)=r(A)$
+
+$A_{m\times n}列满秩,r(AB)=r(B),\ B_{m\times n}行满秩,r(AB)=r(A)(列行)$
+
+$A_{m\times n},B_{m\times s}$，
+
+$AB=\pmb{0}\Rightarrow r(A)+dim\ Nul\ A=n,r(A)+r(B)\le n$
+
+$AB=\pmb{0},\ A,B\ne \pmb{0}\Rightarrow r(A)<n(A的列), r(B)<n(B的行)$
+
+- A 列向量组线性相关，B 行向量组线性相关
+- B 属于 A 的零空间，$A^T$ 属于 $B^T$ 的零空间
 
 $r(A\pm B)\le r(A)+r(B)$
 

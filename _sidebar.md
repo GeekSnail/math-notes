@@ -21,7 +21,6 @@
   - [栈和队列](data-structure/stack-queue.md)
   - [树与二叉树](data-structure/tree.md)
   - [优先队列(堆)](data-structure/priority-queue-heap.md)
-  - [不相交集](data-structure/disjoint-set.md)
   - [图](data-structure/graph.md)
   - [查找](data-structure/search.md)
   - [排序](data-structure/sort.md)

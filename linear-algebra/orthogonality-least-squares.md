@@ -27,10 +27,10 @@
 > **定理** $A_{m\times n}\Rightarrow$ A 的行空间的正交补 = A 的零空间，A 的列空间的正交补 = $A^T$ 的零空间
 >
 > $(Row\ A)^\perp=Nul\ A,\ (Col\ A)^\perp=(Row\ A^T)^\perp=Nul\ A^T$
+>
+> 如：$AX=\pmb{0}$，按行列法则做乘法，$(Row\ A)·(Nul\ A)=0$
 
 ![image-20210703003031821](../assets/image-20210703003031821.png)
-
-
 
 ## 6.2 正交集
 

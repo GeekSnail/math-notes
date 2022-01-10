@@ -40,6 +40,7 @@ IO管理：1,4,9,12,14,23
 - 字符设备(c)：以字符为单位交换，<u>不可寻址</u>，无结构设备。如：键盘，打印机
 
 <details><summary>查看设备</summary>
+
 ```sh
 ls -l /dev/sd{a,b}* /dev/tty*
 brw-rw---- 1 root disk    8,  0 10月 31  2021 /dev/sda
@@ -59,6 +60,7 @@ crw--w---- 1 root tty     4, 10 10月 31  2021 /dev/tty10
 crw--w---- 1 root tty     4, 11 10月 31  2021 /dev/tty11
 crw--w---- 1 root tty     4, 12 10月 31  2021 /dev/tty12
 ```
+
 
 </details>
 
@@ -141,6 +143,8 @@ CPU轮询读取设备寄存器，检查标记状态是否置位，若已置位�
 - CPU响应中断，找到对应的中断处理程序执行，接收数据
 
 缺点：CPU完全干预到IO与内存的数据传输，处理大量中断时过载
+
+<u>注：中断IO方式数据传送通过软件完成，DMA方式数据传送由硬件完成</u>
 
 #### DMA
 
@@ -267,10 +271,6 @@ struct hd_struct {
 - 一个已分区的磁盘有多个block_device实例，但只对应于一个gendisk实例
 - 所有的block_device实例都通过`bd_disk`，指向其对应的通用磁盘数据结构gendisk
 - 对块设备上已经打开的每个分区，都对应于一个struct block_device的实例
-
-
-
-
 
 ![image-20211030213642054](../assets/image-20211030213642054.png)
 

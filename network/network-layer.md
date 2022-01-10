@@ -144,15 +144,17 @@ head-length(4B)：4bit，确定 lP 数据报中载荷实际开始的地方，默
 
 DiffDerv：使用区分服务，可提供不同等级的服务质量，如优先级、低时延、高吞吐量、高可靠性
 
-Total-length(B)：超过MTU=1500B时分片
+Total-length(B)：超过MTU=1500B时需分片<u>（小于46B时对应帧在快速以太网中需填充）</u>
 
-16-bit Identifier：标识，每产生一个数据报，计数器加1，将值赋给标识字段；用于分片/重组
+16-bit Identifier：标识，每产生一个数据报，计数器加1，将值赋给标识字段；<u>用于分片/重组，源/目的主机捕获数据包时根据该标识可判断是否为同一分组</u>
 
 3-bit Flags：标志，bit[0]=0，bit[1]: DF(Dont't Fragment) 0-允许分片, bit[2]: MF(More Fragment) 0-最后一片
 
 13-bit Fragment-offset(8B)：相对于用户数据字段的起点，该片开始位置
 
-Time-to-live(s)：允许保持的最大时间度量。每经过一个路由器，`TTL-=1`；当 `TTL=0`，表示不可达丢弃（确保分组不在网络中循环）
+Time-to-live(s)：允许通过的最大路由器数(时间度量)。每经过一个路由器，`TTL-=1`；当 `TTL=0`，表示不可达丢弃（确保分组不在网络中循环）
+
+<u>IP分组经过的路由器数 = 原主机IP分组TTL字段 - 目的主机IP分组TTL字段</u>
 
 Upper-layer protocol：IP 数据报到达目的地时，数据部分应交给哪个运输层协议
 
@@ -166,9 +168,11 @@ Header-checksum：初始化检验和0，反码计算。首部划分为若干16bi
 
 当IP数据包总长度>MTU，则需对数据部分分片装在多个IP数据报中，片在目的地网络层被重新组装
 
-分片总数：$\lceil DL / (1500-headLength)\rceil=\lceil DL / 1480\rceil$
+片偏移(单位量)：`(MTU - headLength) % 8 ? MTU - (MTU - headLength) % 8 : MTU - headLength`（需为8的整数倍！）
 
-第 i 个分片的偏移字段：$(i \times 1480)/8$​​
+分片总数：$\lceil DL / 片偏移(单位量)\rceil$
+
+第 i 个分片的偏移字段：$i · 片偏移(单位量)/8$
 
 ![image-20210827031644932](../assets/image-20210827031644932.png)
 
@@ -276,6 +280,8 @@ net2: addr2/pn, addr2: {prefix}1{0...0} ─┴─ net: addr/(pn-1), {prefix}{00.
 ![image-20210827055255819](../assets/image-20210827055255819.png)
 
 例子中，R1到网络1,2的两条路由聚合为一条：206.1.0.0/16
+
+<u>注：两路由 <ip1/pre1>, <ip2/pre2>聚合时，取共同前缀位，将首个相异位(一个0, 一个1) 及其后面位置 0 作为聚合路由（与pre1, pre2无必然联系）</u>
 
 CIDR地址块子网划分举例：
 
@@ -550,7 +556,7 @@ function BellmanFord(list vertices, list edges, vertex src) is
 
 **BGP 协议格式**
 
-BGP报文被封装在TCP报文中
+<u>BGP为应用层协议，报文被封装在TCP报文中</u>
 
 ![image-20210828064937724](../assets/image-20210828064937724.png)
 
@@ -608,6 +614,8 @@ BGP报文被封装在TCP报文中
 
 - 路由计算：根据由其它路由器发来的路由信息更新路由表
 - 分组转发：队列及任务调度，查表转发
+
+<u>注：路由器监测到拥塞时合理丢弃IP分组，对IP分组头部进行差错校验，若差错则丢弃</u>
 
 特点：
 
